@@ -1,0 +1,1 @@
+common folder, include application configuration, utls, common models and shared constants
