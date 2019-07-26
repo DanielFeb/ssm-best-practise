@@ -1,4 +1,4 @@
-package indi.daniel.archessm.model;
+package indi.daniel.archessm.model.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -7,8 +7,8 @@ import lombok.ToString;
 
 @Data
 @ToString
-@ApiModel(value = "User", description = "User information")
-public class User {
+@ApiModel(value = "UserDTO", description = "UserDTO information")
+public class UserDTO {
 
     @ApiModelProperty("identification code")
     private int id;

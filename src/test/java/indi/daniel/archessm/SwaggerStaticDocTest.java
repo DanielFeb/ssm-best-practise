@@ -1,12 +1,11 @@
-package indi.daniel.achessm;
+package indi.daniel.archessm;
 
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import indi.daniel.archessm.BootStrapApplication;
 import indi.daniel.archessm.common.SwaggerConstants;
 import indi.daniel.archessm.controller.UserController;
-import indi.daniel.archessm.model.User;
+import indi.daniel.archessm.model.dto.UserDTO;
 import io.github.robwin.markup.builder.MarkupLanguage;
 import io.github.robwin.swagger2markup.GroupBy;
 import io.github.robwin.swagger2markup.Swagger2MarkupConverter;
@@ -67,22 +66,22 @@ public class SwaggerStaticDocTest {
     @Test
     public void TestApi() throws Exception {
 
-        User user = new User();
-        user.setId(123456);
-        user.setName("Daniel");
-        user.setAge(25);
-        user.setAddress("Shanghai China");
-        user.setSex("MALE");
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(123456);
+        userDTO.setName("Daniel");
+        userDTO.setAge(25);
+        userDTO.setAddress("Shanghai China");
+        userDTO.setSex("MALE");
 
-        given(userController.getUser(any())).willReturn(user);
-        mockMvc.perform(get("/user").param("name", "Daniel")
+        given(userController.getUser(any())).willReturn(userDTO);
+        mockMvc.perform(get("/userDTO").param("name", "Daniel")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andDo(MockMvcRestDocumentation.document(SwaggerConstants.GET_USER, preprocessResponse(prettyPrint())));
 
-        given(userController.addUser(any())).willReturn(user);
-        mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON)
-                .content(JSON.toJSONString(user, SerializerFeature.PrettyFormat))
+        given(userController.addUser(any())).willReturn(userDTO);
+        mockMvc.perform(post("/userDTO").contentType(MediaType.APPLICATION_JSON)
+                .content(JSON.toJSONString(userDTO, SerializerFeature.PrettyFormat))
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andDo(MockMvcRestDocumentation.document(SwaggerConstants.ADD_USER, preprocessResponse(prettyPrint())));

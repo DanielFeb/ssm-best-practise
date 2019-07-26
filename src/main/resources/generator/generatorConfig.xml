@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "./mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--配置你自己仓库内部的driver 依赖包-->
+    <classPathEntry location="/Users/daniel/.m2/repository/com/h2database/h2/1.4.199/h2-1.4.199.jar" />
+    <context id="ArcheSSMTables" targetRuntime="MyBatis3">
+        <!--不生成注释-->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="org.h2.Driver"
+                        connectionURL="jdbc:h2:file:~/db/archessm;MODE=mysql;DATABASE_TO_UPPER=FALSE;CASE_INSENSITIVE_IDENTIFIERS=TRUE;"
+                        userId="sa"
+                        password="">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 生成DataObject类存放位置 -->
+        <javaModelGenerator targetPackage="indi.daniel.archessm.model.po" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- 生成映射文件存放位置 -->
+        <sqlMapGenerator targetPackage="mapping"  targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- 生成Dao类存放位置 -->
+        <!-- 客户端代码，生成易于使用的针对Model对象和XML配置文件的代码
+              type="ANNOTATIONDMAPPER"，生成Java Model和基于注解的Mapper 对象
+              type="MIXEDMAPPER",生成基于注解的Java Model和相应的Mapper对象
+              type="XMLMAPPER",生成SQLMap XML 文件和独立的Mapper接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="indi.daniel.archessm.dao"  targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table tableName="t_user" domainObjectName="User" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" delimitAllColumns="true" selectByExampleQueryId="false">
+            <!--<property name="selectAllOrderByClause" value="id asc"/>-->
+            <!--<columnOverride column=""-->
+            <generatedKey column="id" sqlStatement="jdbc"/>
+        </table>
+    </context>
+</generatorConfiguration>

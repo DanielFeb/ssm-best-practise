@@ -1,9 +1,0 @@
-server:
-  port: 8080
-
-swagger:
-  enable: true
-  base-package: indi.daniel.archessm.controller
-  title: API documentation
-  description: Description of API documentation
-  version: V1.0
