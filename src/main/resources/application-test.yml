@@ -1,0 +1,13 @@
+server:
+  port: 8888
+
+logging:
+  config: classpath:logback/logback-spring.xml
+
+#spring:
+#  datasource:
+    #    # mysql
+    #    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    url: jdbc:mysql://localhost:3306/archessm?serverTimezone=Asia/Shanghai
+    #    username: your mysql username
+    #    password: your mysql pass

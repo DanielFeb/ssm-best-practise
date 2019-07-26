@@ -1,3 +1,9 @@
 spring:
   profiles:
     active: dev
+
+swagger:
+  base-package: indi.daniel.archessm.controller
+  title: API documentation
+  description: Description of API documentation
+  version: V1.0

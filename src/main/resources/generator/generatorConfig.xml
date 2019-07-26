@@ -45,8 +45,8 @@
 
         <table tableName="t_user" domainObjectName="User" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" delimitAllColumns="true" selectByExampleQueryId="false">
             <!--<property name="selectAllOrderByClause" value="id asc"/>-->
-            <!--<columnOverride column=""-->
             <generatedKey column="id" sqlStatement="jdbc"/>
+            <!--<columnOverride column="id" javaType="java.lang.Long"/>-->
         </table>
     </context>
 </generatorConfiguration>
