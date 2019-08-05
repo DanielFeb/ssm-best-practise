@@ -15,3 +15,10 @@ spring:
 #    url: jdbc:h2:mem:archessm;MODE=mysql;DATABASE_TO_UPPER=FALSE;CASE_INSENSITIVE_IDENTIFIERS=TRUE;INIT=CREATE SCHEMA IF NOT EXISTS archessm\;SET SCHEMA archessm
     username: sa
     password:
+
+logging:
+  level:
+    indi:
+      daniel:
+        archessm:
+          dao: debug

@@ -6,6 +6,7 @@
 <generatorConfiguration>
     <!--配置你自己仓库内部的driver 依赖包-->
     <classPathEntry location="/Users/daniel/.m2/repository/com/h2database/h2/1.4.199/h2-1.4.199.jar" />
+
     <context id="ArcheSSMTables" targetRuntime="MyBatis3">
         <!--不生成注释-->
         <commentGenerator>
@@ -30,7 +31,7 @@
         </javaModelGenerator>
 
         <!-- 生成映射文件存放位置 -->
-        <sqlMapGenerator targetPackage="mapping"  targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="mapper"  targetProject="src/main/resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
@@ -43,9 +44,17 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table tableName="t_user" domainObjectName="User" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" delimitAllColumns="true" selectByExampleQueryId="false">
-            <!--<property name="selectAllOrderByClause" value="id asc"/>-->
-            <generatedKey column="id" sqlStatement="jdbc"/>
+        <table tableName="t_user"
+               domainObjectName="User"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableUpdateByExample="false"
+               delimitAllColumns="true"
+               selectByExampleQueryId="false">
+
+            <property name="selectAllOrderByClause" value="id asc"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
             <!--<columnOverride column="id" javaType="java.lang.Long"/>-->
         </table>
     </context>

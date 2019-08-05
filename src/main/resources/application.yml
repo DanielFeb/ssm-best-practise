@@ -7,3 +7,6 @@ swagger:
   title: API documentation
   description: Description of API documentation
   version: V1.0
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-handlers-package: indi.daniel.achessm.common.mybatis.typehandler
