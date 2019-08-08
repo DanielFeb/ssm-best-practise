@@ -1,6 +1,6 @@
 package indi.daniel.archessm.common.config;
 
-import org.apache.catalina.servlets.WebdavServlet;
+import org.h2.server.web.WebServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +12,7 @@ public class DevH2Configuration {
 
     @Bean
     ServletRegistrationBean h2ServletRegistrationBean() {
-        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new WebdavServlet());
+        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new WebServlet());
         registrationBean.addUrlMappings("/h2-console/*");
         return registrationBean;
     }
