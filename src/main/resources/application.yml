@@ -8,5 +8,7 @@ swagger:
   description: Description of API documentation
   version: V1.0
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
+  mapper-locations:
+  - classpath:mapper/*.xml
+  - classpath:mapper/mysql/*.xml
   type-handlers-package: indi.daniel.achessm.common.mybatis.typehandler
