@@ -3,9 +3,13 @@
 <mapper namespace="indi.daniel.archessm.dao.IdentityMapper">
   <select id="getNextID" parameterType="java.lang.String" resultType="java.lang.Integer">
     SELECT
-	    ID
+	    CURRENT_VALUE
     FROM
-        INFORMATION_SCHEMA.TABLES
+        INFORMATION_SCHEMA.COLUMNS
+    INNER JOIN
+        INFORMATION_SCHEMA.SEQUENCES
+    ON
+        INFORMATION_SCHEMA.COLUMNS.SEQUENCE_NAME=INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_NAME
     WHERE
         TABLE_SCHEMA='archessm'
     AND
