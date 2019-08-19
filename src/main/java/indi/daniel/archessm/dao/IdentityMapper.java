@@ -1,5 +1,5 @@
 package indi.daniel.archessm.dao;
 
-public interface IdMapper {
+public interface IdentityMapper {
     Integer getNextID(String tableName);
 }
