@@ -3,7 +3,7 @@
 <mapper namespace="indi.daniel.archessm.dao.IdentityMapper">
   <select id="getNextID" parameterType="java.lang.String" resultType="java.lang.Integer">
     SELECT
-	    CURRENT_VALUE
+        CURRENT_VALUE
     FROM
         INFORMATION_SCHEMA.COLUMNS
     INNER JOIN
