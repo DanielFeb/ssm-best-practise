@@ -3,13 +3,13 @@
 <mapper namespace="indi.daniel.archessm.dao.IdentityMapper">
   <select id="getNextID" parameterType="java.lang.String" resultType="java.lang.Integer">
     SELECT
-        CURRENT_VALUE
+        CURRENT_VALUE + INCREMENT
     FROM
         INFORMATION_SCHEMA.COLUMNS
     INNER JOIN
         INFORMATION_SCHEMA.SEQUENCES
     ON
-        INFORMATION_SCHEMA.COLUMNS.SEQUENCE_NAME=INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_NAME
+        INFORMATION_SCHEMA.COLUMNS.SEQUENCE_NAME = INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_NAME
     WHERE
         TABLE_SCHEMA='archessm'
     AND
