@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/archessm?serverTimezone=Asia/Shanghai
+    username: your mysql username
+    password: your mysql pass
+
+logging:
+  level:
+    indi:
+      daniel:
+        archessm:
+          dao: debug

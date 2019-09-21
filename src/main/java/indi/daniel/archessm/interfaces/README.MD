@@ -1,0 +1,1 @@
+interfaces for web, native application or other consumers

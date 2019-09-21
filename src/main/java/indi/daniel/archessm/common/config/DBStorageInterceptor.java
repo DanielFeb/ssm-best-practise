@@ -1,11 +1,12 @@
 package indi.daniel.archessm.common.config;
 
-import indi.daniel.archessm.service.UserService;
+import indi.daniel.archessm.interfaces.facade.UserServiceFacade;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,30 +18,30 @@ import java.util.Date;
 @Slf4j
 public class DBStorageInterceptor {
     @Autowired
-    private UserService userService;
+    private UserServiceFacade userServiceFacade;
 
     public static final String SET_CREATE_BY = "setCreateBy";
     public static final String SET_LAST_UPDATE_BY = "setLastUpdateBy";
     public static final String SET_CREATE_DATE = "setCreateDate";
     public static final String SET_LAST_UPDATE_DATE = "setLastUpdateDate";
-    public static final Class IDENTITY_CLASS = Integer.class;
-    public static final Class DATE_CLASS = Date.class;
+    public static final Class IDENTITY_CLASS = Long.class;
+    public static final Class DATE_CLASS = DateTime.class;
 
 
-    @Pointcut("execution(* indi.daniel.archessm.dao.UserMapper.insert*(..))")
+    @Pointcut("execution(* indi.daniel.archessm.repository.dao..insert*(..))")
     public void insertData() {
     }
 
-    @Pointcut("execution(* indi.daniel.archessm.dao.UserMapper.updateByPrimaryKey*(..))")
+    @Pointcut("execution(* indi.daniel.archessm.repository.dao..updateByPrimaryKey*(..))")
     public void updateData() {
     }
 
     @Before(value = "insertData() && args(arg1)")
     public void injectPropertiesWhenCreate(JoinPoint joinPoint, Object arg1) {
         Class clazz = arg1.getClass();
-        Date now = new Date();
-        injectPropertyBySetter(arg1, clazz, SET_CREATE_BY, IDENTITY_CLASS, userService.getCurrentUserId());
-        injectPropertyBySetter(arg1, clazz, SET_LAST_UPDATE_BY, IDENTITY_CLASS, userService.getCurrentUserId());
+        DateTime now = DateTime.now();
+        injectPropertyBySetter(arg1, clazz, SET_CREATE_BY, IDENTITY_CLASS, userServiceFacade.getCurrentUserId());
+        injectPropertyBySetter(arg1, clazz, SET_LAST_UPDATE_BY, IDENTITY_CLASS, userServiceFacade.getCurrentUserId());
         injectPropertyBySetter(arg1, clazz, SET_CREATE_DATE, DATE_CLASS, now);
         injectPropertyBySetter(arg1, clazz, SET_LAST_UPDATE_DATE, DATE_CLASS, now);
     }
@@ -49,7 +50,7 @@ public class DBStorageInterceptor {
     @Before(value = "updateData() && args(arg1)")
     public void injectPropertiesWhenUpdate(JoinPoint joinPoint, Object arg1) {
         Class clazz = arg1.getClass();
-        Date now = new Date();
+        DateTime now = DateTime.now();
         injectPropertyBySetter(arg1, clazz, SET_CREATE_DATE, DATE_CLASS, now);
         injectPropertyBySetter(arg1, clazz, SET_LAST_UPDATE_DATE, DATE_CLASS, now);
     }

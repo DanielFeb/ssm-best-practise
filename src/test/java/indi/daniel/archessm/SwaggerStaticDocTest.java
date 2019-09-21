@@ -1,11 +1,11 @@
 package indi.daniel.archessm;
 
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import indi.daniel.archessm.common.SwaggerConstants;
-import indi.daniel.archessm.controller.UserController;
-import indi.daniel.archessm.model.dto.UserDTO;
+import indi.daniel.archessm.domain.model.user.Sex;
+import indi.daniel.archessm.interfaces.facade.dto.UserDTO;
+import indi.daniel.archessm.interfaces.web.UserController;
 import io.github.robwin.markup.builder.MarkupLanguage;
 import io.github.robwin.swagger2markup.GroupBy;
 import io.github.robwin.swagger2markup.Swagger2MarkupConverter;
@@ -44,6 +44,8 @@ public class SwaggerStaticDocTest {
     private MockMvc mockMvc;
     @MockBean
     private UserController userController;
+    @Autowired
+    private ObjectMapper objectMapper;
 
 
     @After
@@ -67,21 +69,20 @@ public class SwaggerStaticDocTest {
     public void TestApi() throws Exception {
 
         UserDTO userDTO = new UserDTO();
-        userDTO.setId(123456);
         userDTO.setName("Daniel");
         userDTO.setAge(25);
         userDTO.setAddress("Shanghai China");
-        userDTO.setSex("MALE");
+        userDTO.setSex(Sex.MALE);
 
         given(userController.getUser(any())).willReturn(userDTO);
-        mockMvc.perform(get("/user").param("name", "Daniel")
+        mockMvc.perform(get("/user").param("id", "1")
                 .accept(MediaType.APPLICATION_JSON))
                                 .andExpect(status().isOk())
                 .andDo(MockMvcRestDocumentation.document(SwaggerConstants.GET_USER, preprocessResponse(prettyPrint())));
 
         given(userController.addUser(any())).willReturn(userDTO);
         mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON)
-                .content(JSON.toJSONString(userDTO, SerializerFeature.PrettyFormat))
+                .content(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(userDTO))
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andDo(MockMvcRestDocumentation.document(SwaggerConstants.ADD_USER, preprocessResponse(prettyPrint())));

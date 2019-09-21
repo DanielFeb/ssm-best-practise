@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @MapperScan(
         basePackages = {
-                "indi.daniel.archessm.dao"
+                "indi.daniel.archessm.repository.dao"
         }
 )
 public class MyBatisConfiguration {

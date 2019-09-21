@@ -1,11 +1,11 @@
 CREATE TABLE `archessm`.`t_user` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `address` VARCHAR(45) NOT NULL,
-  `age` INT NOT NULL,
-  `sex` VARCHAR(45) NOT NULL,
-  `create_by` INT NOT NULL,
-  `create_date` datetime NOT NULL,
-  `last_update_by` INT NOT NULL,
-  `last_update_date` datetime NOT NULL,
+  `birth_date` BIGINT NOT NULL,
+  `sex` TINYINT NOT NULL,
+  `create_by` BIGINT NOT NULL,
+  `create_date` BIGINT NOT NULL,
+  `last_update_by` BIGINT NOT NULL,
+  `last_update_date` BIGINT NOT NULL,
   PRIMARY KEY (`id`));

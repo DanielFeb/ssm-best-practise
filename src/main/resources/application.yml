@@ -1,14 +1,31 @@
+server:
+  port: 8080
+
 spring:
   profiles:
-    active: dev
+    active: dev-h2-mem
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/archessm?serverTimezone=Asia/Shanghai
+#    username: your mysql username
+#    password: your mysql pass
 
 swagger:
-  base-package: indi.daniel.archessm.controller
+  base-package: indi.daniel.archessm.interfaces.web
   title: API documentation
   description: Description of API documentation
   version: V1.0
+
 mybatis:
   mapper-locations:
   - classpath:mapper/*.xml
   - classpath:mapper/mysql/*.xml
-  type-handlers-package: indi.daniel.achessm.common.mybatis.typehandler
+  type-handlers-package: indi.daniel.archessm.repository.typehandler
+
+message-keeper:
+  default-language: cn
+  message-map:
+    cn:
+      SUCCESS: '成功'
+      UNEXPECTED_SERVER_ERROR: '服务器异常，请联系管理员'
+      USER_NOT_FOUND: '找不到用户'

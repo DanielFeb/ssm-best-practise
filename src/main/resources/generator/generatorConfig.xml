@@ -25,7 +25,7 @@
         </javaTypeResolver>
 
         <!-- 生成DataObject类存放位置 -->
-        <javaModelGenerator targetPackage="indi.daniel.archessm.model.po" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="indi.daniel.archessm.repository.po" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
@@ -40,22 +40,29 @@
               type="ANNOTATIONDMAPPER"，生成Java Model和基于注解的Mapper 对象
               type="MIXEDMAPPER",生成基于注解的Java Model和相应的Mapper对象
               type="XMLMAPPER",生成SQLMap XML 文件和独立的Mapper接口-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="indi.daniel.archessm.dao"  targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="indi.daniel.archessm.repository.dao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
         <table tableName="t_user"
-               domainObjectName="User"
+               alias="u"
+               domainObjectName="UserPO"
                enableCountByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
                enableUpdateByExample="false"
-               delimitAllColumns="true"
+               delimitAllColumns="false"
                selectByExampleQueryId="false">
 
             <property name="selectAllOrderByClause" value="id asc"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
-            <!--<columnOverride column="id" javaType="java.lang.Long"/>-->
+            <columnOverride column="id" javaType="java.lang.Long"/>
+            <columnOverride column="create_by" javaType="java.lang.Long"/>
+            <columnOverride column="last_update_by" javaType="java.lang.Long"/>
+            <columnOverride column="sex" javaType="indi.daniel.archessm.domain.model.user.Sex"/>
+            <columnOverride column="birth_date" javaType="org.joda.time.DateTime"/>
+            <columnOverride column="create_date" javaType="org.joda.time.DateTime"/>
+            <columnOverride column="last_update_date" javaType="org.joda.time.DateTime"/>
         </table>
     </context>
 </generatorConfiguration>
