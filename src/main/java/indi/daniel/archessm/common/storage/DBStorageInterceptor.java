@@ -1,4 +1,4 @@
-package indi.daniel.archessm.common.config;
+package indi.daniel.archessm.common.storage;
 
 import indi.daniel.archessm.interfaces.facade.UserServiceFacade;
 import lombok.extern.slf4j.Slf4j;

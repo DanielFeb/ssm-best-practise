@@ -1,4 +1,4 @@
-package indi.daniel.archessm.common.config;
+package indi.daniel.archessm.common.endpoint;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

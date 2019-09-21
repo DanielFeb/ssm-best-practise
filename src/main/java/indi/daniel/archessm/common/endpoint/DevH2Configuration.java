@@ -1,4 +1,4 @@
-package indi.daniel.archessm.common.config;
+package indi.daniel.archessm.common.endpoint;
 
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
