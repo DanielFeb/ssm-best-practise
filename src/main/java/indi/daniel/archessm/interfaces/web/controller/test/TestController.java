@@ -1,7 +1,7 @@
 package indi.daniel.archessm.interfaces.web.controller.test;
 
 import indi.daniel.archessm.interfaces.shared.response.ResponseStatus;
-import indi.daniel.archessm.repository.dao.IdentityMapper;
+import indi.daniel.archessm.repository.IdentityGenerator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,10 +12,10 @@ import javax.annotation.Resource;
 @RestController
 public class TestController {
     @Resource
-    private IdentityMapper identityMapper;
+    private IdentityGenerator identityGenerator;
     @GetMapping("/nextId")
-    public Integer getNextId() {
-        return identityMapper.getNextID("t_user");
+    public Long getNextId() {
+        return identityGenerator.getNextId("t_user");
     }
 
     @PostMapping("/echo_status")
