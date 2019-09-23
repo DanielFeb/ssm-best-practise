@@ -1,4 +1,4 @@
-package indi.daniel.archessm.common.auth;
+package indi.daniel.archessm.interfaces.web.config.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

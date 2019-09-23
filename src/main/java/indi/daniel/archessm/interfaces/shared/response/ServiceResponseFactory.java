@@ -1,6 +1,6 @@
-package indi.daniel.archessm.common.response;
+package indi.daniel.archessm.interfaces.shared.response;
 
-import indi.daniel.archessm.common.exception.ApiException;
+import indi.daniel.archessm.interfaces.shared.exception.ApiException;
 import indi.daniel.archessm.common.message.MessageCodeConstants;
 
 public class ServiceResponseFactory {

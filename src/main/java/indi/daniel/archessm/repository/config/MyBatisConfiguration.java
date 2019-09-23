@@ -1,4 +1,4 @@
-package indi.daniel.archessm.common.storage;
+package indi.daniel.archessm.repository.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;

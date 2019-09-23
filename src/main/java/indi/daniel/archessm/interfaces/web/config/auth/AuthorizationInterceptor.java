@@ -1,4 +1,4 @@
-package indi.daniel.archessm.common.auth;
+package indi.daniel.archessm.interfaces.web.config.auth;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

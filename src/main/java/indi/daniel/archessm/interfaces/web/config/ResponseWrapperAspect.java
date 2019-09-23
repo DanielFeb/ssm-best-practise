@@ -1,13 +1,13 @@
-package indi.daniel.archessm.common.response;
+package indi.daniel.archessm.interfaces.web.config;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import indi.daniel.archessm.common.ApplicationConstants;
-import indi.daniel.archessm.common.exception.ApiException;
-import indi.daniel.archessm.common.exception.UnexpectedServerErrorException;
-import indi.daniel.archessm.common.log.LogMessageSupplier;
-import indi.daniel.archessm.common.response.ServiceResponse;
-import indi.daniel.archessm.common.response.ServiceResponseFactory;
+import indi.daniel.archessm.interfaces.shared.exception.ApiException;
+import indi.daniel.archessm.interfaces.shared.exception.UnexpectedServerErrorException;
+import indi.daniel.archessm.interfaces.shared.response.ServiceResponse;
+import indi.daniel.archessm.interfaces.shared.response.ServiceResponseFactory;
+import indi.daniel.archessm.interfaces.web.WebConstants;
+import indi.daniel.archessm.interfaces.web.config.log.LogMessageSupplier;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
@@ -40,7 +40,7 @@ public class ResponseWrapperAspect implements ResponseBodyAdvice<Object> {
 
     @Override
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
-        return methodParameter.getDeclaringClass().getName().startsWith(ApplicationConstants.CONTROLLER_PACKAGE);
+        return methodParameter.getDeclaringClass().getName().startsWith(WebConstants.CONTROLLER_PACKAGE);
     }
 
     @Override

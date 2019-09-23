@@ -1,7 +1,7 @@
-package indi.daniel.archessm.common.exception;
+package indi.daniel.archessm.interfaces.shared.exception;
 
 import indi.daniel.archessm.common.message.MessageCodeConstants;
-import indi.daniel.archessm.common.response.ResponseStatusCode;
+import indi.daniel.archessm.interfaces.shared.response.ResponseStatusCode;
 
 public class UnexpectedServerErrorException extends ApiException {
     public UnexpectedServerErrorException(Throwable cause) {

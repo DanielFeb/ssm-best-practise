@@ -1,6 +1,6 @@
-package indi.daniel.archessm.interfaces.web.test;
+package indi.daniel.archessm.interfaces.web.controller.test;
 
-import indi.daniel.archessm.common.response.ResponseStatus;
+import indi.daniel.archessm.interfaces.shared.response.ResponseStatus;
 import indi.daniel.archessm.repository.dao.IdentityMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

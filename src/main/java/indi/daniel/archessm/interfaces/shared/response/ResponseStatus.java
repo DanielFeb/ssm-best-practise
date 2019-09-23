@@ -1,4 +1,4 @@
-package indi.daniel.archessm.common.response;
+package indi.daniel.archessm.interfaces.shared.response;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

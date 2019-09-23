@@ -1,6 +1,6 @@
-package indi.daniel.archessm.common.log;
+package indi.daniel.archessm.interfaces.web.config.log;
 
-import indi.daniel.archessm.common.ApplicationConstants;
+import indi.daniel.archessm.interfaces.web.WebConstants;
 import lombok.extern.java.Log;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Log
 public class ControllerLogAspect {
-    @Pointcut("execution(public * " + ApplicationConstants.CONTROLLER_PACKAGE + "*..*(..))")
+    @Pointcut("execution(public * " + WebConstants.CONTROLLER_PACKAGE + "*..*(..))")
     public void controllerPointCut(){
     }
     @Around("controllerPointCut()")

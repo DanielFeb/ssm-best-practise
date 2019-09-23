@@ -1,4 +1,4 @@
-package indi.daniel.archessm.common.exception;
+package indi.daniel.archessm.domain.shared;
 
 import lombok.Getter;
 

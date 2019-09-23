@@ -1,7 +1,7 @@
 package indi.daniel.archessm.interfaces.facade.internal;
 
-import indi.daniel.archessm.common.exception.ApiException;
-import indi.daniel.archessm.common.response.ResponseStatusCode;
+import indi.daniel.archessm.interfaces.shared.exception.ApiException;
+import indi.daniel.archessm.interfaces.shared.response.ResponseStatusCode;
 import indi.daniel.archessm.domain.model.user.User;
 import indi.daniel.archessm.domain.model.user.UserRepository;
 import indi.daniel.archessm.interfaces.facade.UserServiceFacade;

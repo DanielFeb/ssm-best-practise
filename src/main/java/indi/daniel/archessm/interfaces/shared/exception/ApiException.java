@@ -1,6 +1,7 @@
-package indi.daniel.archessm.common.exception;
+package indi.daniel.archessm.interfaces.shared.exception;
 
-import indi.daniel.archessm.common.response.ResponseStatusCode;
+import indi.daniel.archessm.interfaces.shared.response.ResponseStatusCode;
+import indi.daniel.archessm.domain.shared.DomainException;
 import lombok.Data;
 
 import java.io.PrintWriter;

@@ -1,8 +1,7 @@
-package indi.daniel.archessm.interfaces.web;
+package indi.daniel.archessm.interfaces.web.controller;
 
-import indi.daniel.archessm.common.SwaggerConstants;
+import indi.daniel.archessm.interfaces.web.swagger.SwaggerConstants;
 import indi.daniel.archessm.interfaces.facade.dto.UserDTO;
-import indi.daniel.archessm.repository.po.UserPO;
 import indi.daniel.archessm.interfaces.facade.UserServiceFacade;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -1,4 +1,4 @@
-package indi.daniel.archessm.common;
+package indi.daniel.archessm.interfaces.web.swagger;
 
 public class SwaggerConstants {
     public static final String GET_USER = "GetUser";

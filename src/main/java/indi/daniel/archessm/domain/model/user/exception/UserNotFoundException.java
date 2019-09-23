@@ -1,6 +1,6 @@
 package indi.daniel.archessm.domain.model.user.exception;
 
-import indi.daniel.archessm.common.exception.DomainException;
+import indi.daniel.archessm.domain.shared.DomainException;
 import indi.daniel.archessm.common.message.MessageCodeConstants;
 
 public class UserNotFoundException extends DomainException {
