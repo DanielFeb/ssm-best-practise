@@ -1,4 +1,4 @@
-CREATE TABLE `archessm`.`t_user` (
+CREATE TABLE `t_user` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `address` VARCHAR(45) NOT NULL,
