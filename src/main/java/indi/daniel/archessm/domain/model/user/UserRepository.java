@@ -9,4 +9,6 @@ public interface UserRepository {
     User get(Long idValue) throws UserNotFoundException;
 
     void remove(User user) throws UserNotFoundException;
+
+    Boolean exists(Long idValue);
 }

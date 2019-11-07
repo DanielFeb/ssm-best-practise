@@ -27,7 +27,7 @@ public class UserRepositoryMybatis implements UserRepository {
     @Override
     public void store(User user) {
         UserPO existingPO = userPOMapper.selectByPrimaryKey(user.id().getValue());
-        UserPO userPO = UserConverter.deserialize(user);
+        UserPO userPO = UserConverter.toPersistentObject(user);
         if (null == existingPO) {
             userPOMapper.insertSelective(userPO);
         } else {
@@ -49,12 +49,17 @@ public class UserRepositoryMybatis implements UserRepository {
         if (null == userPO) {
             throw new UserNotFoundException();
         }
-        return UserConverter.serialize(userPO);
+        return UserConverter.toDomainObject(userPO);
     }
 
     @Override
     public void remove(User user) throws UserNotFoundException {
         this.remove(user.id().getValue());
+    }
+
+    @Override
+    public Boolean exists(Long idValue) {
+        return userPOMapper.selectByPrimaryKey(idValue) != null;
     }
 
     private void remove(Long idValue) throws UserNotFoundException {

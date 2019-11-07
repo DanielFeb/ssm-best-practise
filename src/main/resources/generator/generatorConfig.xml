@@ -2,10 +2,11 @@
 
 <!DOCTYPE generatorConfiguration
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
-        "./mybatis-generator-config_1_0.dtd">
+        "/Users/daniel/Documents/projects/playgrounds/archessm/src/main/resources/mybatisgenerator/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!--配置你自己仓库内部的driver 依赖包-->
     <classPathEntry location="/Users/daniel/.m2/repository/com/h2database/h2/1.4.199/h2-1.4.199.jar" />
+    <!--<classPathEntry location="/Users/daniel/.m2/repository/mysql/mysql-connector-java/8.0.16/mysql-connector-java-8.0.16.jar" />-->
 
     <context id="ArcheSSMTables" targetRuntime="MyBatis3">
         <!--不生成注释-->
@@ -19,6 +20,12 @@
                         userId="sa"
                         password="">
         </jdbcConnection>
+
+        <!--<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"-->
+                        <!--connectionURL="jdbc:mysql://localhost:3306/archessm?useUnicode=true&amp;characterEncoding=UTF-8"-->
+                        <!--userId="root"-->
+                        <!--password="daniel123123">-->
+        <!--</jdbcConnection>-->
 
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
