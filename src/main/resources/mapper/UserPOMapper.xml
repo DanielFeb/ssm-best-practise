@@ -3,12 +3,12 @@
 <mapper namespace="indi.daniel.archessm.repository.dao.UserPOMapper">
   <resultMap id="BaseResultMap" type="indi.daniel.archessm.repository.po.UserPO">
     <id column="u_id" jdbcType="BIGINT" property="id" />
-    <result column="u_login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="u_username" jdbcType="VARCHAR" property="username" />
     <result column="u_password" jdbcType="VARCHAR" property="password" />
     <result column="u_phone_number" jdbcType="VARCHAR" property="phoneNumber" />
     <result column="u_email" jdbcType="VARCHAR" property="email" />
     <result column="u_identity_number" jdbcType="VARCHAR" property="identityNumber" />
-    <result column="u_nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="u_nickname" jdbcType="VARCHAR" property="nickname" />
     <result column="u_address" jdbcType="VARCHAR" property="address" />
     <result column="u_birth_date" jdbcType="BIGINT" property="birthDate" />
     <result column="u_sex" jdbcType="TINYINT" property="sex" />
@@ -18,8 +18,8 @@
     <result column="u_last_update_date" jdbcType="BIGINT" property="lastUpdateDate" />
   </resultMap>
   <sql id="Base_Column_List">
-    u.id as u_id, u.login_name as u_login_name, u.password as u_password, u.phone_number as u_phone_number, 
-    u.email as u_email, u.identity_number as u_identity_number, u.nick_name as u_nick_name, 
+    u.id as u_id, u.username as u_username, u.password as u_password, u.phone_number as u_phone_number, 
+    u.email as u_email, u.identity_number as u_identity_number, u.nickname as u_nickname, 
     u.address as u_address, u.birth_date as u_birth_date, u.sex as u_sex, u.create_by as u_create_by, 
     u.create_date as u_create_date, u.last_update_by as u_last_update_by, u.last_update_date as u_last_update_date
   </sql>
@@ -34,8 +34,390 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="indi.daniel.archessm.repository.po.UserPO" useGeneratedKeys="true">
-    insert into t_user (login_name, password, phone_number, 
-      email, identity_number, nick_name, 
+    insert into t_user (username, password, phone_number, 
+      email, identity_number, nickname, 
+      address, birth_date, sex, 
+      create_by, create_date, last_update_by, 
+      last_update_date)
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{identityNumber,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{birthDate,jdbcType=BIGINT}, #{sex,jdbcType=TINYINT}, 
+      #{createBy,jdbcType=BIGINT}, #{createDate,jdbcType=BIGINT}, #{lastUpdateBy,jdbcType=BIGINT}, 
+      #{lastUpdateDate,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="indi.daniel.archessm.repository.po.UserPO" useGeneratedKeys="true">
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="phoneNumber != null">
+        phone_number,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="identityNumber != null">
+        identity_number,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="birthDate != null">
+        birth_date,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by,
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="identityNumber != null">
+        #{identityNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="birthDate != null">
+        #{birthDate,jdbcType=BIGINT},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="indi.daniel.archessm.repository.po.UserPO">
+    update t_user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="identityNumber != null">
+        identity_number = #{identityNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="birthDate != null">
+        birth_date = #{birthDate,jdbcType=BIGINT},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by = #{lastUpdateBy,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date = #{lastUpdateDate,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="indi.daniel.archessm.repository.po.UserPO">
+    update t_user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      identity_number = #{identityNumber,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      birth_date = #{birthDate,jdbcType=BIGINT},
+      sex = #{sex,jdbcType=TINYINT},
+      create_by = #{createBy,jdbcType=BIGINT},
+      create_date = #{createDate,jdbcType=BIGINT},
+      last_update_by = #{lastUpdateBy,jdbcType=BIGINT},
+      last_update_date = #{lastUpdateDate,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="indi.daniel.archessm.repository.po.UserPO">
+    <id column="u_id" jdbcType="BIGINT" property="id" />
+    <result column="u_username" jdbcType="VARCHAR" property="username" />
+    <result column="u_password" jdbcType="VARCHAR" property="password" />
+    <result column="u_phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="u_email" jdbcType="VARCHAR" property="email" />
+    <result column="u_identity_number" jdbcType="VARCHAR" property="identityNumber" />
+    <result column="u_nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="u_address" jdbcType="VARCHAR" property="address" />
+    <result column="u_birth_date" jdbcType="BIGINT" property="birthDate" />
+    <result column="u_sex" jdbcType="TINYINT" property="sex" />
+    <result column="u_create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="u_create_date" jdbcType="BIGINT" property="createDate" />
+    <result column="u_last_update_by" jdbcType="BIGINT" property="lastUpdateBy" />
+    <result column="u_last_update_date" jdbcType="BIGINT" property="lastUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    u.id as u_id, u.username as u_username, u.password as u_password, u.phone_number as u_phone_number, 
+    u.email as u_email, u.identity_number as u_identity_number, u.nickname as u_nickname, 
+    u.address as u_address, u.birth_date as u_birth_date, u.sex as u_sex, u.create_by as u_create_by, 
+    u.create_date as u_create_date, u.last_update_by as u_last_update_by, u.last_update_date as u_last_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user u
+    where u.id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="indi.daniel.archessm.repository.po.UserPO" useGeneratedKeys="true">
+    insert into t_user (username, password, phone_number, 
+      email, identity_number, nickname, 
+      address, birth_date, sex, 
+      create_by, create_date, last_update_by, 
+      last_update_date)
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{identityNumber,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{birthDate,jdbcType=BIGINT}, #{sex,jdbcType=TINYINT}, 
+      #{createBy,jdbcType=BIGINT}, #{createDate,jdbcType=BIGINT}, #{lastUpdateBy,jdbcType=BIGINT}, 
+      #{lastUpdateDate,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="indi.daniel.archessm.repository.po.UserPO" useGeneratedKeys="true">
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="phoneNumber != null">
+        phone_number,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="identityNumber != null">
+        identity_number,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="birthDate != null">
+        birth_date,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by,
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="identityNumber != null">
+        #{identityNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="birthDate != null">
+        #{birthDate,jdbcType=BIGINT},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="indi.daniel.archessm.repository.po.UserPO">
+    update t_user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="identityNumber != null">
+        identity_number = #{identityNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="birthDate != null">
+        birth_date = #{birthDate,jdbcType=BIGINT},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by = #{lastUpdateBy,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date = #{lastUpdateDate,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="indi.daniel.archessm.repository.po.UserPO">
+    update t_user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      identity_number = #{identityNumber,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      birth_date = #{birthDate,jdbcType=BIGINT},
+      sex = #{sex,jdbcType=TINYINT},
+      create_by = #{createBy,jdbcType=BIGINT},
+      create_date = #{createDate,jdbcType=BIGINT},
+      last_update_by = #{lastUpdateBy,jdbcType=BIGINT},
+      last_update_date = #{lastUpdateDate,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="indi.daniel.archessm.repository.po.UserPO">
+    <id column="u_id" jdbcType="BIGINT" property="id" />
+    <result column="u_username" jdbcType="VARCHAR" property="loginName" />
+    <result column="u_password" jdbcType="VARCHAR" property="password" />
+    <result column="u_phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="u_email" jdbcType="VARCHAR" property="email" />
+    <result column="u_identity_number" jdbcType="VARCHAR" property="identityNumber" />
+    <result column="u_nickname" jdbcType="VARCHAR" property="nickName" />
+    <result column="u_address" jdbcType="VARCHAR" property="address" />
+    <result column="u_birth_date" jdbcType="BIGINT" property="birthDate" />
+    <result column="u_sex" jdbcType="TINYINT" property="sex" />
+    <result column="u_create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="u_create_date" jdbcType="BIGINT" property="createDate" />
+    <result column="u_last_update_by" jdbcType="BIGINT" property="lastUpdateBy" />
+    <result column="u_last_update_date" jdbcType="BIGINT" property="lastUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    u.id as u_id, u.username as u_username, u.password as u_password, u.phone_number as u_phone_number, 
+    u.email as u_email, u.identity_number as u_identity_number, u.nickname as u_nickname, 
+    u.address as u_address, u.birth_date as u_birth_date, u.sex as u_sex, u.create_by as u_create_by, 
+    u.create_date as u_create_date, u.last_update_by as u_last_update_by, u.last_update_date as u_last_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user u
+    where u.id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="indi.daniel.archessm.repository.po.UserPO" useGeneratedKeys="true">
+    insert into t_user (username, password, phone_number, 
+      email, identity_number, nickname, 
       address, birth_date, sex, 
       create_by, create_date, last_update_by, 
       last_update_date)
@@ -49,7 +431,7 @@
     insert into t_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="loginName != null">
-        login_name,
+        username,
       </if>
       <if test="password != null">
         password,
@@ -64,7 +446,7 @@
         identity_number,
       </if>
       <if test="nickName != null">
-        nick_name,
+        nickname,
       </if>
       <if test="address != null">
         address,
@@ -134,7 +516,7 @@
     update t_user
     <set>
       <if test="loginName != null">
-        login_name = #{loginName,jdbcType=VARCHAR},
+        username = #{loginName,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
@@ -149,7 +531,7 @@
         identity_number = #{identityNumber,jdbcType=VARCHAR},
       </if>
       <if test="nickName != null">
-        nick_name = #{nickName,jdbcType=VARCHAR},
+        nickname = #{nickName,jdbcType=VARCHAR},
       </if>
       <if test="address != null">
         address = #{address,jdbcType=VARCHAR},
@@ -177,12 +559,12 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="indi.daniel.archessm.repository.po.UserPO">
     update t_user
-    set login_name = #{loginName,jdbcType=VARCHAR},
+    set username = #{loginName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       phone_number = #{phoneNumber,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       identity_number = #{identityNumber,jdbcType=VARCHAR},
-      nick_name = #{nickName,jdbcType=VARCHAR},
+      nickname = #{nickName,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       birth_date = #{birthDate,jdbcType=BIGINT},
       sex = #{sex,jdbcType=TINYINT},

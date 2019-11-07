@@ -1,11 +1,11 @@
 CREATE TABLE `t_user` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `login_name` VARCHAR(45) NOT NULL DEFAULT '',
+  `username` VARCHAR(45) NOT NULL DEFAULT '',
   `password` VARCHAR(32) NOT NULL DEFAULT '',
   `phone_number` VARCHAR(20) NOT NULL DEFAULT '',
   `email` VARCHAR(45) NOT NULL DEFAULT '',
   `identity_number` VARCHAR(32) NOT NULL DEFAULT '',
-  `nick_name` VARCHAR(45) NOT NULL DEFAULT '',
+  `nickname` VARCHAR(45) NOT NULL DEFAULT '',
   `address` VARCHAR(200) NOT NULL DEFAULT '',
   `birth_date` BIGINT NOT NULL DEFAULT 0,
   `sex` TINYINT NOT NULL DEFAULT 2,
@@ -14,7 +14,7 @@ CREATE TABLE `t_user` (
   `last_update_by` BIGINT NOT NULL DEFAULT 0,
   `last_update_date` BIGINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
-  INDEX `idx_user_login_name` (`login_name` ASC),
+  INDEX `idx_user_login_name` (`username` ASC),
   INDEX `idx_user_phone_number` (`phone_number` ASC),
   INDEX `idx_user_email` (`email` ASC),
   INDEX `idx_user_identity_number` (`identity_number` ASC));

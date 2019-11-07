@@ -6,7 +6,7 @@ import org.joda.time.DateTime;
 public class UserPO {
     private Long id;
 
-    private String loginName;
+    private String username;
 
     private String password;
 
@@ -16,7 +16,7 @@ public class UserPO {
 
     private String identityNumber;
 
-    private String nickName;
+    private String nickname;
 
     private String address;
 
@@ -40,12 +40,12 @@ public class UserPO {
         this.id = id;
     }
 
-    public String getLoginName() {
-        return loginName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLoginName(String loginName) {
-        this.loginName = loginName == null ? null : loginName.trim();
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
     public String getPassword() {
@@ -80,12 +80,12 @@ public class UserPO {
         this.identityNumber = identityNumber == null ? null : identityNumber.trim();
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName == null ? null : nickName.trim();
+    public void setNickname(String nickname) {
+        this.nickname = nickname == null ? null : nickname.trim();
     }
 
     public String getAddress() {

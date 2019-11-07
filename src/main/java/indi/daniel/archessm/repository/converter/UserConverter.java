@@ -9,7 +9,7 @@ public class UserConverter {
     public static UserPO toPersistentObject(User user) {
         UserPO userPO = new UserPO();
         userPO.setId(user.id().getValue());
-        userPO.setNickName(user.name());
+        userPO.setNickname(user.name());
         userPO.setSex(user.sex());
         userPO.setBirthDate(user.birthDay());
         userPO.setAddress(user.address());
@@ -19,7 +19,7 @@ public class UserConverter {
     public static User toDomainObject(UserPO userPO) {
         return new User(
                 new UserId(userPO.getId()),
-                userPO.getNickName(),
+                userPO.getNickname(),
                 userPO.getSex(),
                 userPO.getAddress(),
                 userPO.getBirthDate(),
