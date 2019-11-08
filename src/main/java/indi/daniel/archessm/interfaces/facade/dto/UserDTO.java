@@ -1,6 +1,6 @@
 package indi.daniel.archessm.interfaces.facade.dto;
 
-import indi.daniel.archessm.domain.model.user.Sex;
+import indi.daniel.archessm.domain.auth.model.Sex;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -16,6 +16,9 @@ public class UserDTO {
 
     @ApiModelProperty("name")
     private String name;
+
+    @ApiModelProperty("password")
+    private String password;
 
     @ApiModelProperty("age")
     private int age;

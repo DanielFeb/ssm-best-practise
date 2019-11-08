@@ -4,6 +4,7 @@ import indi.daniel.archessm.interfaces.shared.exception.ApiException;
 import indi.daniel.archessm.common.message.MessageCodeConstants;
 
 public class ServiceResponseFactory {
+    private ServiceResponseFactory() { }
     public static final ResponseStatus DEFAULT_SUCCESS_RESPONSE_STATUS =
             ResponseStatusFactory.get(ResponseStatusCode.SUCCESS, MessageCodeConstants.SUCCESS);
     public static final String EMPTY_RESULT = "";

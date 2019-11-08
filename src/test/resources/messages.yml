@@ -1,0 +1,10 @@
+message-keeper:
+  default-language: cn
+  message-map:
+    cn:
+      SUCCESS: '成功'
+      INVALID_ARGUMENT: '参数不正确'
+      BUSINESS_ERROR: '业务异常'
+      AUTHORIZATION_ERROR: '权限异常'
+      UNEXPECTED_SERVER_ERROR: '服务器异常，请联系管理员'
+      USER_NOT_FOUND: '找不到用户'

@@ -1,5 +1,6 @@
 package indi.daniel.archessm.interfaces.shared.exception;
 
+import indi.daniel.archessm.domain.shared.DomainRuntimeException;
 import indi.daniel.archessm.interfaces.shared.response.ResponseStatusCode;
 import indi.daniel.archessm.domain.shared.DomainException;
 import lombok.Data;
@@ -22,6 +23,10 @@ public class ApiException extends RuntimeException {
         this(code, e.getMessageCode(), e);
     }
 
+
+    public ApiException(ResponseStatusCode code, DomainRuntimeException e) {
+        this(code, e.getMessageCode(), e);
+    }
 
     public ApiException(ResponseStatusCode code, String messageCode) {
         this(code, messageCode, null);

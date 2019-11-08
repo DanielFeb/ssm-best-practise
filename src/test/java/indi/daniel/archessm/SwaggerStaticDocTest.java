@@ -3,7 +3,7 @@ package indi.daniel.archessm;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import indi.daniel.archessm.interfaces.web.swagger.SwaggerConstants;
-import indi.daniel.archessm.domain.model.user.Sex;
+import indi.daniel.archessm.domain.auth.model.Sex;
 import indi.daniel.archessm.interfaces.facade.dto.UserDTO;
 import indi.daniel.archessm.interfaces.web.controller.UserController;
 import io.github.robwin.markup.builder.MarkupLanguage;

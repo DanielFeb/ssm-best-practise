@@ -2,6 +2,7 @@ package indi.daniel.archessm.interfaces.shared.response;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import indi.daniel.archessm.common.message.MessageCodeConstants;
 import io.swagger.annotations.ApiModel;
 
 import java.util.HashMap;
@@ -9,10 +10,11 @@ import java.util.Map;
 
 @ApiModel(value = "StatusCode", description = "Class of status")
 public enum ResponseStatusCode {
-    SUCCESS(10200, "Success")
-    , INVALID_ARGUMENT(10201, "Invalid Argument")
-    , AUTHENTICATION_ERROR(10202, "Authentication Error")
-    , UNEXPECTED_SERVER_ERROR(50001, "Unexpected Server Error");
+    SUCCESS(10200, MessageCodeConstants.SUCCESS)
+    , INVALID_ARGUMENT(10201, MessageCodeConstants.INVALID_ARGUMENT)
+    , AUTH_ERROR(10202, MessageCodeConstants.AUTHORIZATION_ERROR)
+    , BUSINESS_ERROR(10203, MessageCodeConstants.BUSINESS_ERROR)
+    , UNEXPECTED_SERVER_ERROR(50001, MessageCodeConstants.UNEXPECTED_SERVER_ERROR);
     private Integer value;
     private String description;
 
@@ -27,7 +29,7 @@ public enum ResponseStatusCode {
     static {
         valueMap.put(SUCCESS.toValue(), SUCCESS);
         valueMap.put(INVALID_ARGUMENT.toValue(), INVALID_ARGUMENT);
-        valueMap.put(AUTHENTICATION_ERROR.toValue(), AUTHENTICATION_ERROR);
+        valueMap.put(AUTH_ERROR.toValue(), AUTH_ERROR);
         valueMap.put(UNEXPECTED_SERVER_ERROR.toValue(), UNEXPECTED_SERVER_ERROR);
     }
 

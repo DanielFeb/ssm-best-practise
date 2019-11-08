@@ -64,11 +64,88 @@
 
             <property name="selectAllOrderByClause" value="id asc"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
-            <columnOverride column="id" javaType="java.lang.Long"/>
-            <columnOverride column="create_by" javaType="java.lang.Long"/>
-            <columnOverride column="last_update_by" javaType="java.lang.Long"/>
-            <columnOverride column="sex" javaType="indi.daniel.archessm.domain.model.user.Sex"/>
+            <columnOverride column="sex" javaType="indi.daniel.archessm.domain.auth.Sex"/>
             <columnOverride column="birth_date" javaType="org.joda.time.DateTime"/>
+            <columnOverride column="create_date" javaType="org.joda.time.DateTime"/>
+            <columnOverride column="last_update_date" javaType="org.joda.time.DateTime"/>
+        </table>
+
+        <table tableName="t_role"
+               alias="role"
+               domainObjectName="RolePO"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableUpdateByExample="false"
+               delimitAllColumns="false"
+               selectByExampleQueryId="false">
+
+            <property name="selectAllOrderByClause" value="id asc"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+            <columnOverride column="create_date" javaType="org.joda.time.DateTime"/>
+            <columnOverride column="last_update_date" javaType="org.joda.time.DateTime"/>
+        </table>
+
+        <table tableName="t_application"
+               alias="app"
+               domainObjectName="ApplicationPO"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableUpdateByExample="false"
+               delimitAllColumns="false"
+               selectByExampleQueryId="false">
+
+            <property name="selectAllOrderByClause" value="id asc"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+            <columnOverride column="create_date" javaType="org.joda.time.DateTime"/>
+            <columnOverride column="last_update_date" javaType="org.joda.time.DateTime"/>
+        </table>
+
+        <table tableName="t_resource"
+               alias="resource"
+               domainObjectName="ResourcePO"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableUpdateByExample="false"
+               delimitAllColumns="false"
+               selectByExampleQueryId="false">
+
+            <property name="selectAllOrderByClause" value="id asc"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+            <columnOverride column="create_date" javaType="org.joda.time.DateTime"/>
+            <columnOverride column="last_update_date" javaType="org.joda.time.DateTime"/>
+        </table>
+
+        <table tableName="t_user_role_relation"
+               alias="urr"
+               domainObjectName="UserRoleRelationPO"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableUpdateByExample="false"
+               delimitAllColumns="false"
+               selectByExampleQueryId="false">
+
+            <property name="selectAllOrderByClause" value="id asc"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+            <columnOverride column="create_date" javaType="org.joda.time.DateTime"/>
+            <columnOverride column="last_update_date" javaType="org.joda.time.DateTime"/>
+        </table>
+
+        <table tableName="t_role_resource_relation"
+               alias="rrr"
+               domainObjectName="RoleResourceRelationPO"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableUpdateByExample="false"
+               delimitAllColumns="false"
+               selectByExampleQueryId="false">
+
+            <property name="selectAllOrderByClause" value="id asc"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
             <columnOverride column="create_date" javaType="org.joda.time.DateTime"/>
             <columnOverride column="last_update_date" javaType="org.joda.time.DateTime"/>
         </table>

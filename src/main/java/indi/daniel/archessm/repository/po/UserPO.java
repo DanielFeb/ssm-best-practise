@@ -1,6 +1,6 @@
 package indi.daniel.archessm.repository.po;
 
-import indi.daniel.archessm.domain.model.user.Sex;
+import indi.daniel.archessm.domain.auth.model.Sex;
 import org.joda.time.DateTime;
 
 public class UserPO {

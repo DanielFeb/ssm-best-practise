@@ -2,6 +2,7 @@ package indi.daniel.archessm.interfaces.web.config;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import indi.daniel.archessm.domain.shared.DomainRuntimeException;
 import indi.daniel.archessm.interfaces.shared.exception.ApiException;
 import indi.daniel.archessm.interfaces.shared.exception.UnexpectedServerErrorException;
 import indi.daniel.archessm.interfaces.shared.response.ResponseStatusCode;
@@ -39,7 +40,9 @@ public class ResponseWrapperAspect implements ResponseBodyAdvice<Object> {
     public ServiceResponse handleException(Exception e) {
         if (e instanceof ApiException) {
             return ServiceResponseFactory.constructApiExceptionResponse((ApiException) e);
-        } else if(e instanceof MethodArgumentNotValidException) {
+        } else if (e instanceof DomainRuntimeException) {
+            return ServiceResponseFactory.constructApiExceptionResponse(new ApiException(ResponseStatusCode.BUSINESS_ERROR, (DomainRuntimeException) e));
+        }  else if (e instanceof MethodArgumentNotValidException) {
             // handle controller argument validation error. Avoid 400
             return ServiceResponseFactory.constructApiExceptionResponse(new ApiException(ResponseStatusCode.INVALID_ARGUMENT, e.getMessage(), e));
         } else {

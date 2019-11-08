@@ -3,6 +3,7 @@ package indi.daniel.archessm.interfaces.shared.response;
 import indi.daniel.archessm.common.message.MessageFactory;
 
 public class ResponseStatusFactory {
+    private ResponseStatusFactory() { }
     public static ResponseStatus get(ResponseStatusCode code, String messageCode) {
         return get(code, messageCode, code.getDescription());
     }

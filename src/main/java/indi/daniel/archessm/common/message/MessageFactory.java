@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MessageFactory {
+    private MessageFactory() { }
     public static String getMessageByCode(String messageCode) {
         return SpringBeanUtil.getBean(MessageKeeper.class).getMessage(messageCode);
     }

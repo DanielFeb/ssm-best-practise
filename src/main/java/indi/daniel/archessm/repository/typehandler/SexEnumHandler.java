@@ -1,6 +1,6 @@
 package indi.daniel.archessm.repository.typehandler;
 
-import indi.daniel.archessm.domain.model.user.Sex;
+import indi.daniel.archessm.domain.auth.model.Sex;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 

@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Component
 @ConfigurationProperties("message-keeper")
-@PropertySource(value = "messages.yml", factory = YamlPropertyLoaderFactory.class)
+@PropertySource(value = "classpath:messages.yml", factory = YamlPropertyLoaderFactory.class)
 @Setter
 @Log
 public class MessageKeeper {
