@@ -1,7 +1,7 @@
 package indi.daniel.archessm.repository.config;
 
 //TODO repository should not depends on interfaces
-import indi.daniel.archessm.interfaces.facade.UserServiceFacade;
+import indi.daniel.archessm.interfaces.auth.facade.UserServiceFacade;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;

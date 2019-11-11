@@ -14,7 +14,7 @@ spring:
 #    password: your mysql pass
 
 swagger:
-  base-package: indi.daniel.archessm.interfaces.web
+  base-package: indi.daniel.archessm.interfaces.auth.web
   title: API documentation
   description: Description of API documentation
   version: V1.0
