@@ -1,4 +1,4 @@
-package indi.daniel.archessm.interfaces.auth.web.swagger;
+package indi.daniel.archessm.interfaces.common.config.web.swagger;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

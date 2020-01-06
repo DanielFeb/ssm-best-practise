@@ -1,6 +1,6 @@
-package indi.daniel.archessm.interfaces.auth.web.controller.test;
+package indi.daniel.archessm.interfaces.auth.web;
 
-import indi.daniel.archessm.common.interfaces.response.ResponseStatus;
+import indi.daniel.archessm.interfaces.common.response.ResponseStatus;
 import indi.daniel.archessm.repository.IdentityGenerator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

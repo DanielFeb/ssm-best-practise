@@ -6,8 +6,8 @@ import indi.daniel.archessm.domain.auth.model.exception.UserNotFoundException;
 import indi.daniel.archessm.interfaces.auth.facade.UserServiceFacade;
 import indi.daniel.archessm.interfaces.auth.facade.dto.UserDTO;
 import indi.daniel.archessm.interfaces.auth.facade.dto.assembler.UserDTOAssembler;
-import indi.daniel.archessm.common.interfaces.exception.ApiException;
-import indi.daniel.archessm.common.interfaces.response.ResponseStatusCode;
+import indi.daniel.archessm.interfaces.common.exception.ApiException;
+import indi.daniel.archessm.interfaces.common.response.ResponseStatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

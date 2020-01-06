@@ -1,6 +1,6 @@
-package indi.daniel.archessm.interfaces.auth.web.config.log;
+package indi.daniel.archessm.interfaces.common.config.web.log;
 
-import indi.daniel.archessm.interfaces.auth.web.WebConstants;
+import indi.daniel.archessm.interfaces.common.config.web.WebConstants;
 import lombok.extern.java.Log;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

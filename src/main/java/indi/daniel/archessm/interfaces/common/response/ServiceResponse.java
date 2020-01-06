@@ -1,4 +1,4 @@
-package indi.daniel.archessm.common.interfaces.response;
+package indi.daniel.archessm.interfaces.common.response;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;

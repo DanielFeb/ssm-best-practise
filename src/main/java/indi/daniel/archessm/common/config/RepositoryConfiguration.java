@@ -1,4 +1,4 @@
-package indi.daniel.archessm.config;
+package indi.daniel.archessm.common.config;
 
 import indi.daniel.archessm.domain.auth.model.RoleRepository;
 import indi.daniel.archessm.domain.auth.model.UserRepository;

@@ -1,4 +1,4 @@
-package indi.daniel.archessm.common.interfaces.response;
+package indi.daniel.archessm.interfaces.common.response;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;

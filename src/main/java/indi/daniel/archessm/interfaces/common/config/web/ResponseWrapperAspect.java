@@ -1,15 +1,14 @@
-package indi.daniel.archessm.interfaces.auth.web.config;
+package indi.daniel.archessm.interfaces.common.config.web;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import indi.daniel.archessm.domain.shared.DomainRuntimeException;
-import indi.daniel.archessm.common.interfaces.exception.ApiException;
-import indi.daniel.archessm.common.interfaces.exception.UnexpectedServerErrorException;
-import indi.daniel.archessm.common.interfaces.response.ResponseStatusCode;
-import indi.daniel.archessm.common.interfaces.response.ServiceResponse;
-import indi.daniel.archessm.common.interfaces.response.ServiceResponseFactory;
-import indi.daniel.archessm.interfaces.auth.web.WebConstants;
-import indi.daniel.archessm.interfaces.auth.web.config.log.LogMessageSupplier;
+import indi.daniel.archessm.interfaces.common.exception.ApiException;
+import indi.daniel.archessm.interfaces.common.exception.UnexpectedServerErrorException;
+import indi.daniel.archessm.interfaces.common.response.ResponseStatusCode;
+import indi.daniel.archessm.interfaces.common.response.ServiceResponse;
+import indi.daniel.archessm.interfaces.common.response.ServiceResponseFactory;
+import indi.daniel.archessm.interfaces.common.config.web.log.LogMessageSupplier;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;

@@ -1,7 +1,7 @@
-package indi.daniel.archessm.common.interfaces.exception;
+package indi.daniel.archessm.interfaces.common.exception;
 
 import indi.daniel.archessm.domain.shared.DomainRuntimeException;
-import indi.daniel.archessm.common.interfaces.response.ResponseStatusCode;
+import indi.daniel.archessm.interfaces.common.response.ResponseStatusCode;
 import indi.daniel.archessm.domain.shared.DomainException;
 import lombok.Data;
 
