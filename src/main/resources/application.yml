@@ -17,8 +17,12 @@ spring:
       initial-size: 5
       max-active: 5
       min-idle: 5
-      filters: stat,wall,stat,slf4j,default
-#      filters: conn,config,stat,slf4j
+      #      conn 自定义拦截器
+      #      config decrypt
+      #      stat 监控
+      #      slf4j 日志
+      #      wall 防sql注入
+      filters: conn,config,stat,slf4j,wall
       connection-properties: config.decrypt=true;config.decrypt.key=${public-key}
       filter.config.enabled: true
       test-on-borrow: true
