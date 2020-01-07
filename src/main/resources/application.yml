@@ -2,16 +2,45 @@ server:
   port: 8080
 
 spring:
+  flyway:
+    enabled: true
+    schemas: archessm
   profiles:
     active: dev-h2-mem
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/archessm?serverTimezone=Asia/Shanghai
-#    username: your mysql username
-#    password: your mysql pass
+    # java -cp druid-1.1.10.jar com.alibaba.druid.filter.config.ConfigTools {password}
+    username: root
+    password: T5gwBSf1G9Evbcptnjplz9ee+K7dUVwzvWEH8slDXOox6l9KB589Skib9xfMdU1BPyVeeIZM1uHTrjAv34KbPg==
+    druid:
+      initial-size: 5
+      max-active: 5
+      min-idle: 5
+      #      conn 自定义拦截器
+      #      config decrypt
+      #      stat 监控
+      #      slf4j 日志
+      #      wall 防sql注入
+      filters: conn,config,stat,slf4j,wall
+      connection-properties: config.decrypt=true;config.decrypt.key=${public-key}
+      filter.config.enabled: true
+      test-on-borrow: true
+      test-on-return: true
+      test-while-idle: true
+      filter:
+        slf4j:
+          enabled: true
+          statement-create-after-log-enabled: false
+          statement-log-enabled: false
+          statement-executable-sql-log-enable: true
+          statement-log-error-enabled: true
+          result-set-log-enabled: false
+
+public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAK4zU9DhMx2SKMqDz4U+/vxkfgTNOfdCJyXjE6cVyQPc7vIe7zyTmbX2ki6zjqUWbvb2vZg2ckuxUxkvH9G9rG8CAwEAAQ==
 
 swagger:
-  base-package: indi.daniel.archessm.interfaces.web
+  base-package: indi.daniel.archessm.interfaces.auth.web
   title: API documentation
   description: Description of API documentation
   version: V1.0
@@ -21,11 +50,3 @@ mybatis:
   - classpath:mapper/*.xml
   - classpath:mapper/mysql/*.xml
   type-handlers-package: indi.daniel.archessm.repository.typehandler
-
-message-keeper:
-  default-language: cn
-  message-map:
-    cn:
-      SUCCESS: '成功'
-      UNEXPECTED_SERVER_ERROR: '服务器异常，请联系管理员'
-      USER_NOT_FOUND: '找不到用户'

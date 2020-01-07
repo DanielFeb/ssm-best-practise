@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="indi.daniel.archessm.repository.dao.IdentityMapper">
-  <select id="getNextID" parameterType="java.lang.String" resultType="java.lang.Integer">
+  <select id="getNextID" parameterType="java.lang.String" resultType="java.lang.Long">
     SELECT
         CURRENT_VALUE + INCREMENT
     FROM
@@ -11,7 +11,7 @@
     ON
         INFORMATION_SCHEMA.COLUMNS.SEQUENCE_NAME = INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_NAME
     WHERE
-        TABLE_SCHEMA='archessm'
+        TABLE_SCHEMA=SCHEMA()
     AND
         TABLE_NAME = #{tableName,jdbcType=VARCHAR}
   </select>

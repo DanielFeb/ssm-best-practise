@@ -4,12 +4,16 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/archessm?serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/archessm?useUnicode=true&characterEncoding=UTF-8
     username: your mysql username
     password: your mysql pass
+    druid:
+      connection-properties: config.decrypt=false
 
 logging:
   level:
+    root: info
+    druid: debug
     indi:
       daniel:
         archessm:

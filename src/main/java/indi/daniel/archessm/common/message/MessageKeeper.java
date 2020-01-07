@@ -1,14 +1,17 @@
 package indi.daniel.archessm.common.message;
 
+import indi.daniel.archessm.common.YamlPropertyLoaderFactory;
 import lombok.Setter;
 import lombok.extern.java.Log;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
 @Component
 @ConfigurationProperties("message-keeper")
+@PropertySource(value = "classpath:messages.yml", factory = YamlPropertyLoaderFactory.class)
 @Setter
 @Log
 public class MessageKeeper {
