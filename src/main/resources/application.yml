@@ -22,6 +22,7 @@ spring:
       #      stat 监控
       #      slf4j 日志
       #      wall 防sql注入
+      #      TODO：监控页面
       filters: conn,config,stat,slf4j,wall
       connection-properties: config.decrypt=true;config.decrypt.key=${public-key}
       filter.config.enabled: true
