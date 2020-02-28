@@ -23,7 +23,7 @@ spring:
       #      slf4j 日志
       #      wall 防sql注入
       #      TODO：监控页面
-      filters: conn,config,stat,slf4j,wall
+      filters: conn,config,stat,slf4j #,wall
       connection-properties: config.decrypt=true;config.decrypt.key=${public-key}
       filter.config.enabled: true
       test-on-borrow: true
@@ -50,4 +50,8 @@ mybatis:
   mapper-locations:
   - classpath:mapper/*.xml
   - classpath:mapper/mysql/*.xml
-  type-handlers-package: indi.daniel.archessm.repository.typehandler
+  type-handlers-package: indi.daniel.archessm.infrustructures.repository.typehandler
+
+logging:
+  level:
+    druid: debug

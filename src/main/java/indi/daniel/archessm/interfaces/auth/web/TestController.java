@@ -1,11 +1,8 @@
 package indi.daniel.archessm.interfaces.auth.web;
 
 import indi.daniel.archessm.interfaces.common.response.ResponseStatus;
-import indi.daniel.archessm.repository.IdentityGenerator;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import indi.daniel.archessm.infrustructures.repository.IdentityGenerator;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -14,11 +11,13 @@ public class TestController {
     @Resource
     private IdentityGenerator identityGenerator;
     @GetMapping("/nextId")
+    @ResponseBody
     public Long getNextId() {
         return identityGenerator.getNextId("t_user");
     }
 
     @PostMapping("/echo_status")
+    @ResponseBody
     public ResponseStatus echo(@RequestBody ResponseStatus responseStatus) {
         return responseStatus;
     }

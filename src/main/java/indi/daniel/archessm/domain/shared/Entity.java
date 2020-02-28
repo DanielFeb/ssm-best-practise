@@ -4,7 +4,7 @@ package indi.daniel.archessm.domain.shared;
  * An entity, as explained in the DDD book.
  *  
  */
-public interface Entity<T extends Entity, ID extends Identity> {
+public interface Entity<T extends Entity, ID extends Identity> extends Verifiable {
   ID id();
 
   /**

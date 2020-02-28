@@ -1,10 +1,11 @@
 package indi.daniel.archessm.domain.auth.model;
 
+
+import indi.daniel.archessm.domain.shared.Repository;
+
 import java.util.Set;
 
-public interface RoleRepository {
-    RoleId getNextId();
+public interface RoleRepository extends Repository<Role, RoleId> {
     Set<Role> getRoles(Set<RoleId> roleIds);
-    Role get(RoleId roleId);
     Role get(String roleName);
 }

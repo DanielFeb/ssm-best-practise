@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="indi.daniel.archessm.repository.dao.RolePOMapper">
-  <resultMap id="BaseResultMap" type="indi.daniel.archessm.repository.po.RolePO">
+<mapper namespace="indi.daniel.archessm.infrustructures.repository.dao.RolePOMapper">
+  <resultMap id="BaseResultMap" type="indi.daniel.archessm.infrustructures.repository.po.RolePO">
     <id column="role_id" jdbcType="BIGINT" property="id" />
     <result column="role_application_id" jdbcType="BIGINT" property="applicationId" />
     <result column="role_name" jdbcType="VARCHAR" property="name" />
@@ -26,7 +26,7 @@
     delete from t_role
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="indi.daniel.archessm.repository.po.RolePO" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="indi.daniel.archessm.infrustructures.repository.po.RolePO" useGeneratedKeys="true">
     insert into t_role (application_id, name, description, 
       create_by, create_date, last_update_by, 
       last_update_date)
@@ -34,7 +34,7 @@
       #{createBy,jdbcType=BIGINT}, #{createDate,jdbcType=BIGINT}, #{lastUpdateBy,jdbcType=BIGINT}, 
       #{lastUpdateDate,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="indi.daniel.archessm.repository.po.RolePO" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="indi.daniel.archessm.infrustructures.repository.po.RolePO" useGeneratedKeys="true">
     insert into t_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="applicationId != null">
@@ -83,7 +83,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="indi.daniel.archessm.repository.po.RolePO">
+  <update id="updateByPrimaryKeySelective" parameterType="indi.daniel.archessm.infrustructures.repository.po.RolePO">
     update t_role
     <set>
       <if test="applicationId != null">
@@ -110,7 +110,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="indi.daniel.archessm.repository.po.RolePO">
+  <update id="updateByPrimaryKey" parameterType="indi.daniel.archessm.infrustructures.repository.po.RolePO">
     update t_role
     set application_id = #{applicationId,jdbcType=BIGINT},
       name = #{name,jdbcType=VARCHAR},

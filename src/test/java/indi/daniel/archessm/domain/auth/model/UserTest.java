@@ -1,10 +1,6 @@
 package indi.daniel.archessm.domain.auth.model;
 
-import indi.daniel.archessm.domain.auth.model.Sex;
-import indi.daniel.archessm.domain.auth.model.User;
-import indi.daniel.archessm.domain.auth.model.Users;
 import indi.daniel.archessm.domain.auth.model.exception.UserNotFoundException;
-import indi.daniel.archessm.mock.repository.MockRepositoryConfiguration;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = MockRepositoryConfiguration.class)
+@SpringBootTest()
 public class UserTest {
     @Test
     public void testCRUD() {

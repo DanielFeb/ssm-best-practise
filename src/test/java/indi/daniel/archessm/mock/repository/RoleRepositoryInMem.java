@@ -5,8 +5,8 @@ import indi.daniel.archessm.domain.auth.model.Role;
 import indi.daniel.archessm.domain.auth.model.RoleId;
 import indi.daniel.archessm.domain.auth.model.RoleRepository;
 import indi.daniel.archessm.domain.shop.model.role.ShopRole;
-import indi.daniel.archessm.repository.IdentityGenerator;
-import indi.daniel.archessm.repository.TableNameConstants;
+import indi.daniel.archessm.infrustructures.repository.IdentityGenerator;
+import indi.daniel.archessm.infrustructures.repository.TableNameConstants;
 
 import java.util.Map;
 import java.util.Objects;
@@ -38,12 +38,27 @@ public class RoleRepositoryInMem implements RoleRepository {
     }
 
     @Override
+    public boolean exists(RoleId id) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Set<Role> getRoles(Set<RoleId> roleIds) {
         Preconditions.checkArgument(null != roleIds);
         return roleIds.stream()
                 .map(roleIdMap::get)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toSet());
+    }
+
+    @Override
+    public void store(Role entity) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void remove(Role entity) {
+        throw new UnsupportedOperationException();
     }
 
     @Override

@@ -116,7 +116,7 @@ public class User implements Entity<User, UserId> {
 
     public void setPassword(String password) {
         Preconditions.checkArgument(StringUtils.isNotEmpty(password));
-        this.password = MD5Encoder.encode(password.getBytes());
+        this.password = password;
     }
 
     public boolean checkPassword(String password) {
@@ -186,4 +186,11 @@ public class User implements Entity<User, UserId> {
         return this.roleIds.contains(role.id());
     }
 
+    @Override
+    public void verify() {
+        // 保存之前要验证的东西
+        if (nickname == null) {
+
+        }
+    }
 }

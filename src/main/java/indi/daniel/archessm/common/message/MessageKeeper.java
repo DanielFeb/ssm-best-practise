@@ -3,6 +3,7 @@ package indi.daniel.archessm.common.message;
 import indi.daniel.archessm.common.YamlPropertyLoaderFactory;
 import lombok.Setter;
 import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
@@ -13,7 +14,7 @@ import java.util.Map;
 @ConfigurationProperties("message-keeper")
 @PropertySource(value = "classpath:messages.yml", factory = YamlPropertyLoaderFactory.class)
 @Setter
-@Log
+@Slf4j
 public class MessageKeeper {
     private Map<String, Map<String, String>> messageMap;
     private String defaultLanguage;
@@ -29,7 +30,7 @@ public class MessageKeeper {
             stringBuilder
                     .append("Cannot find message code ").append(messageCode)
                     .append(" in language ").append(languageCode).append("!");
-            log.warning( stringBuilder.toString());
+            log.warn( stringBuilder.toString());
             result = messageCode;
         }
         return result;
