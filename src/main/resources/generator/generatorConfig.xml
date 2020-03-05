@@ -33,7 +33,7 @@
         </javaTypeResolver>
 
         <!-- 生成DataObject类存放位置 -->
-        <javaModelGenerator targetPackage="indi.daniel.archessm.infrustructures.repository.po" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="indi.daniel.archessm.infrastructures.repository.po" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
@@ -48,7 +48,7 @@
               type="ANNOTATIONDMAPPER"，生成Java Model和基于注解的Mapper 对象
               type="MIXEDMAPPER",生成基于注解的Java Model和相应的Mapper对象
               type="XMLMAPPER",生成SQLMap XML 文件和独立的Mapper接口-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="indi.daniel.archessm.infrustructures.repository.dao" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="indi.daniel.archessm.infrastructures.repository.dao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 

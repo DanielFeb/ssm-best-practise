@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="indi.daniel.archessm.infrustructures.repository.dao.RoleResourceRelationPOMapper">
-  <resultMap id="BaseResultMap" type="indi.daniel.archessm.infrustructures.repository.po.RoleResourceRelationPO">
+<mapper namespace="indi.daniel.archessm.infrastructures.repository.dao.RoleResourceRelationPOMapper">
+  <resultMap id="BaseResultMap" type="indi.daniel.archessm.infrastructures.repository.po.RoleResourceRelationPO">
     <id column="rrr_role_id" jdbcType="BIGINT" property="roleId" />
     <id column="rrr_resource_id" jdbcType="BIGINT" property="resourceId" />
     <result column="rrr_create_by" jdbcType="BIGINT" property="createBy" />
@@ -13,19 +13,19 @@
     rrr.role_id as rrr_role_id, rrr.resource_id as rrr_resource_id, rrr.create_by as rrr_create_by, 
     rrr.create_date as rrr_create_date, rrr.last_update_by as rrr_last_update_by, rrr.last_update_date as rrr_last_update_date
   </sql>
-  <select id="selectByPrimaryKey" parameterType="indi.daniel.archessm.infrustructures.repository.po.RoleResourceRelationPOKey" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="indi.daniel.archessm.infrastructures.repository.po.RoleResourceRelationPOKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_role_resource_relation rrr
     where rrr.role_id = #{roleId,jdbcType=BIGINT}
       and rrr.resource_id = #{resourceId,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="indi.daniel.archessm.infrustructures.repository.po.RoleResourceRelationPOKey">
+  <delete id="deleteByPrimaryKey" parameterType="indi.daniel.archessm.infrastructures.repository.po.RoleResourceRelationPOKey">
     delete from t_role_resource_relation
     where role_id = #{roleId,jdbcType=BIGINT}
       and resource_id = #{resourceId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="indi.daniel.archessm.infrustructures.repository.po.RoleResourceRelationPO">
+  <insert id="insert" parameterType="indi.daniel.archessm.infrastructures.repository.po.RoleResourceRelationPO">
     insert into t_role_resource_relation (role_id, resource_id, create_by, 
       create_date, last_update_by, last_update_date
       )
@@ -33,7 +33,7 @@
       #{createDate,jdbcType=BIGINT}, #{lastUpdateBy,jdbcType=BIGINT}, #{lastUpdateDate,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="indi.daniel.archessm.infrustructures.repository.po.RoleResourceRelationPO">
+  <insert id="insertSelective" parameterType="indi.daniel.archessm.infrastructures.repository.po.RoleResourceRelationPO">
     insert into t_role_resource_relation
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="roleId != null">
@@ -76,7 +76,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="indi.daniel.archessm.infrustructures.repository.po.RoleResourceRelationPO">
+  <update id="updateByPrimaryKeySelective" parameterType="indi.daniel.archessm.infrastructures.repository.po.RoleResourceRelationPO">
     update t_role_resource_relation
     <set>
       <if test="createBy != null">
@@ -95,7 +95,7 @@
     where role_id = #{roleId,jdbcType=BIGINT}
       and resource_id = #{resourceId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="indi.daniel.archessm.infrustructures.repository.po.RoleResourceRelationPO">
+  <update id="updateByPrimaryKey" parameterType="indi.daniel.archessm.infrastructures.repository.po.RoleResourceRelationPO">
     update t_role_resource_relation
     set create_by = #{createBy,jdbcType=BIGINT},
       create_date = #{createDate,jdbcType=BIGINT},

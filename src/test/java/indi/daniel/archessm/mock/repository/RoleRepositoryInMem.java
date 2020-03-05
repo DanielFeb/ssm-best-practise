@@ -5,8 +5,8 @@ import indi.daniel.archessm.domain.auth.model.Role;
 import indi.daniel.archessm.domain.auth.model.RoleId;
 import indi.daniel.archessm.domain.auth.model.RoleRepository;
 import indi.daniel.archessm.domain.shop.model.role.ShopRole;
-import indi.daniel.archessm.infrustructures.repository.IdentityGenerator;
-import indi.daniel.archessm.infrustructures.repository.TableNameConstants;
+import indi.daniel.archessm.infrastructures.repository.IdentityGenerator;
+import indi.daniel.archessm.infrastructures.repository.TableNameConstants;
 
 import java.util.Map;
 import java.util.Objects;

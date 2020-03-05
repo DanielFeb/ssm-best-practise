@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="indi.daniel.archessm.infrustructures.repository.dao.UserRoleRelationPOMapper">
-  <resultMap id="BaseResultMap" type="indi.daniel.archessm.infrustructures.repository.po.UserRoleRelationPO">
+<mapper namespace="indi.daniel.archessm.infrastructures.repository.dao.UserRoleRelationPOMapper">
+  <resultMap id="BaseResultMap" type="indi.daniel.archessm.infrastructures.repository.po.UserRoleRelationPO">
     <id column="urr_user_id" jdbcType="BIGINT" property="userId" />
     <id column="urr_role_id" jdbcType="BIGINT" property="roleId" />
     <result column="urr_create_by" jdbcType="BIGINT" property="createBy" />
@@ -13,19 +13,19 @@
     urr.user_id as urr_user_id, urr.role_id as urr_role_id, urr.create_by as urr_create_by, 
     urr.create_date as urr_create_date, urr.last_update_by as urr_last_update_by, urr.last_update_date as urr_last_update_date
   </sql>
-  <select id="selectByPrimaryKey" parameterType="indi.daniel.archessm.infrustructures.repository.po.UserRoleRelationPOKey" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="indi.daniel.archessm.infrastructures.repository.po.UserRoleRelationPOKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_user_role_relation urr
     where urr.user_id = #{userId,jdbcType=BIGINT}
       and urr.role_id = #{roleId,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="indi.daniel.archessm.infrustructures.repository.po.UserRoleRelationPOKey">
+  <delete id="deleteByPrimaryKey" parameterType="indi.daniel.archessm.infrastructures.repository.po.UserRoleRelationPOKey">
     delete from t_user_role_relation
     where user_id = #{userId,jdbcType=BIGINT}
       and role_id = #{roleId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="indi.daniel.archessm.infrustructures.repository.po.UserRoleRelationPO">
+  <insert id="insert" parameterType="indi.daniel.archessm.infrastructures.repository.po.UserRoleRelationPO">
     insert into t_user_role_relation (user_id, role_id, create_by, 
       create_date, last_update_by, last_update_date
       )
@@ -33,7 +33,7 @@
       #{createDate,jdbcType=BIGINT}, #{lastUpdateBy,jdbcType=BIGINT}, #{lastUpdateDate,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="indi.daniel.archessm.infrustructures.repository.po.UserRoleRelationPO">
+  <insert id="insertSelective" parameterType="indi.daniel.archessm.infrastructures.repository.po.UserRoleRelationPO">
     insert into t_user_role_relation
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -76,7 +76,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="indi.daniel.archessm.infrustructures.repository.po.UserRoleRelationPO">
+  <update id="updateByPrimaryKeySelective" parameterType="indi.daniel.archessm.infrastructures.repository.po.UserRoleRelationPO">
     update t_user_role_relation
     <set>
       <if test="createBy != null">
@@ -95,7 +95,7 @@
     where user_id = #{userId,jdbcType=BIGINT}
       and role_id = #{roleId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="indi.daniel.archessm.infrustructures.repository.po.UserRoleRelationPO">
+  <update id="updateByPrimaryKey" parameterType="indi.daniel.archessm.infrastructures.repository.po.UserRoleRelationPO">
     update t_user_role_relation
     set create_by = #{createBy,jdbcType=BIGINT},
       create_date = #{createDate,jdbcType=BIGINT},
