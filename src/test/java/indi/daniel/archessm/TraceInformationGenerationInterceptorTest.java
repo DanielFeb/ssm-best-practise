@@ -29,12 +29,12 @@ import static org.springframework.restdocs.operation.preprocess.Preprocessors.pr
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-@WebAppConfiguration
 @AutoConfigureMockMvc
 @AutoConfigureRestDocs(outputDir = "target/generated-snippets")
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {ArchessmApplication.class})
-public class DBStorageInterceptorTest {
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+        classes = {ArchessmApplication.class})
+public class TraceInformationGenerationInterceptorTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -66,6 +66,7 @@ public class DBStorageInterceptorTest {
         userDTO.setAge(25);
         userDTO.setAddress("Shanghai China");
         userDTO.setSex(Sex.MALE);
+        userDTO.setPassword("1234");
         mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(userDTO))
                 .accept(MediaType.APPLICATION_JSON))

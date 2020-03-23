@@ -5,10 +5,9 @@ import indi.daniel.archessm.domain.auth.model.UserRepository;
 import indi.daniel.archessm.infrastructures.repository.IdentityGenerator;
 import indi.daniel.archessm.infrastructures.repository.LocalMapIdentityGenerator;
 import indi.daniel.archessm.infrastructures.repository.auth.RoleRepositoryMybatis;
-import indi.daniel.archessm.infrastructures.repository.dao.UserPOMapper;
 import indi.daniel.archessm.infrastructures.repository.auth.UserRepositoryMybatis;
 import indi.daniel.archessm.infrastructures.repository.dao.IdentityMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import indi.daniel.archessm.infrastructures.repository.dao.UserPOMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,20 +15,17 @@ import org.springframework.context.annotation.Configuration;
 public class RepositoryConfiguration {
 
     @Bean
-    @Autowired
-    public IdentityGenerator getIdentityGenerator(IdentityMapper identityMapper) {
+    public IdentityGenerator identityGenerator(IdentityMapper identityMapper) {
         return LocalMapIdentityGenerator.getInstance(identityMapper);
     }
 
     @Bean
-    @Autowired
-    public UserRepository getUserRepository(UserPOMapper userPOMapper, IdentityGenerator identityGenerator) {
+    public UserRepository userRepository(UserPOMapper userPOMapper, IdentityGenerator identityGenerator) {
         return new UserRepositoryMybatis(userPOMapper, identityGenerator);
     }
 
     @Bean
-    @Autowired
-    public RoleRepository getRoleRepository(IdentityGenerator identityGenerator) {
+    public RoleRepository roleRepository(IdentityGenerator identityGenerator) {
         return new RoleRepositoryMybatis(identityGenerator);
     }
 }

@@ -1,6 +1,7 @@
 package indi.daniel.archessm.infrastructures.repository.config;
 
 //TODO repository should not depends on interfaces
+
 import indi.daniel.archessm.interfaces.auth.facade.UserServiceFacade;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -16,7 +17,7 @@ import java.lang.reflect.Method;
 @Aspect
 @Component
 @Slf4j
-public class DBStorageInterceptor {
+public class TraceInformationGenerationInterceptor {
     @Autowired
     private UserServiceFacade userServiceFacade;
 

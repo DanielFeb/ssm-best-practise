@@ -17,7 +17,7 @@ public class RepositoryAdvice {
     }
 
     @Around("storePointCut()")
-    public void timeLog(ProceedingJoinPoint joinPoint) throws Throwable {
+    public void doStoreAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
         Entity entity = (Entity) joinPoint.getArgs()[0];
         entity.verify();
         joinPoint.proceed();
