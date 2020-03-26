@@ -1,14 +1,16 @@
 package indi.daniel.archessm.infrastructures.repository.finance.po;
 
+import indi.daniel.archessm.domain.finance.model.account.AccountID;
+import indi.daniel.archessm.domain.finance.model.transfer.TransferHistoryID;
 import org.joda.money.Money;
 import org.joda.time.DateTime;
 
 public class TransferHistoryPO {
-    private Long id;
+    private TransferHistoryID id;
 
-    private Long fromAccount;
+    private AccountID fromAccount;
 
-    private Long toAccount;
+    private AccountID toAccount;
 
     private Money amount;
 
@@ -20,27 +22,27 @@ public class TransferHistoryPO {
 
     private DateTime lastUpdateDate;
 
-    public Long getId() {
+    public TransferHistoryID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(TransferHistoryID id) {
         this.id = id;
     }
 
-    public Long getFromAccount() {
+    public AccountID getFromAccount() {
         return fromAccount;
     }
 
-    public void setFromAccount(Long fromAccount) {
+    public void setFromAccount(AccountID fromAccount) {
         this.fromAccount = fromAccount;
     }
 
-    public Long getToAccount() {
+    public AccountID getToAccount() {
         return toAccount;
     }
 
-    public void setToAccount(Long toAccount) {
+    public void setToAccount(AccountID toAccount) {
         this.toAccount = toAccount;
     }
 

@@ -207,6 +207,7 @@
 
             <property name="selectAllOrderByClause" value="id asc"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
+            <columnOverride column="id" javaType="indi.daniel.archessm.domain.finance.model.account.AccountID"/>
             <columnOverride column="balance" javaType="org.joda.money.Money"/>
             <columnOverride column="create_date" javaType="org.joda.time.DateTime"/>
             <columnOverride column="last_update_date" javaType="org.joda.time.DateTime"/>
@@ -223,6 +224,9 @@
                selectByExampleQueryId="false">
             <property name="selectAllOrderByClause" value="id asc"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
+            <columnOverride column="id" javaType="indi.daniel.archessm.domain.finance.model.transfer.TransferHistoryID"/>
+            <columnOverride column="from_account" javaType="indi.daniel.archessm.domain.finance.model.account.AccountID"/>
+            <columnOverride column="to_account" javaType="indi.daniel.archessm.domain.finance.model.account.AccountID"/>
             <columnOverride column="amount" javaType="org.joda.money.Money"/>
             <columnOverride column="create_date" javaType="org.joda.time.DateTime"/>
             <columnOverride column="last_update_date" javaType="org.joda.time.DateTime"/>

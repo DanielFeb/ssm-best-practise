@@ -1,4 +1,4 @@
-package indi.daniel.archessm.domain.finance.model;
+package indi.daniel.archessm.domain.finance.model.account;
 
 import indi.daniel.archessm.domain.shared.Identity;
 

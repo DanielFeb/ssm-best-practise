@@ -1,10 +1,11 @@
 package indi.daniel.archessm.infrastructures.repository.finance.po;
 
+import indi.daniel.archessm.domain.finance.model.account.AccountID;
 import org.joda.money.Money;
 import org.joda.time.DateTime;
 
 public class AccountPO {
-    private Long id;
+    private AccountID id;
 
     private Money balance;
 
@@ -16,11 +17,11 @@ public class AccountPO {
 
     private DateTime lastUpdateDate;
 
-    public Long getId() {
+    public AccountID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(AccountID id) {
         this.id = id;
     }
 
