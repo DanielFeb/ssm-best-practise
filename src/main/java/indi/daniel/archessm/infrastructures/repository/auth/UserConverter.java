@@ -3,7 +3,7 @@ package indi.daniel.archessm.infrastructures.repository.auth;
 import indi.daniel.archessm.domain.auth.model.User;
 import indi.daniel.archessm.domain.auth.model.UserId;
 import indi.daniel.archessm.domain.shared.TraceInformation;
-import indi.daniel.archessm.infrastructures.repository.po.UserPO;
+import indi.daniel.archessm.infrastructures.repository.auth.po.UserPO;
 
 import java.util.Collections;
 

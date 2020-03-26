@@ -48,9 +48,13 @@ swagger:
 
 mybatis:
   mapper-locations:
-  - classpath:mapper/*.xml
-  - classpath:mapper/mysql/*.xml
-  type-handlers-package: indi.daniel.archessm.infrastructures.repository.typehandler
+    - classpath:mapper/*.xml
+    - classpath:mapper/auth/*.xml
+    - classpath:mapper/auth/auto/*.xml
+    - classpath:mapper/finance/*.xml
+    - classpath:mapper/finance/auto/*.xml
+    - classpath:mapper/mysql/*.xml
+  type-handlers-package: indi.daniel.archessm.infrastructures.repository.common.typehandler
 
 logging:
   level:

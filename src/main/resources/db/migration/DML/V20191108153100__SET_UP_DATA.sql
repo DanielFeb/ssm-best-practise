@@ -1,5 +1,5 @@
 -- create super user
-INSERT INTO `t_user`
+INSERT INTO `t_auth_user`
   (
     `username`,
     `password`,
@@ -25,19 +25,19 @@ VALUES
   );
 
 -- create auth application
-INSERT INTO `t_application`
+INSERT INTO `t_auth_application`
   (`id`, `name`, `description`, `create_by`, `last_update_by`)
 VALUES
   ('1', 'AUTH', 'AUTH', '1', '1');
 
 -- create auth application roles
-INSERT INTO `t_role`
+INSERT INTO `t_auth_role`
   (`id`, `application_id`, `name`,
    `description`, `create_by`, `last_update_by`)
  VALUES
   ('1', '1', 'ADMIN',
   'super user', '1', '1');
-INSERT INTO `t_role`
+INSERT INTO `t_auth_role`
   (`id`, `application_id`, `name`,
   `description`, `create_by`, `last_update_by`)
 VALUES
@@ -45,7 +45,7 @@ VALUES
   'no auth', '1', '1');
 
 -- add admin role for super user
-INSERT INTO `t_user_role_relation`
+INSERT INTO `t_auth_user_role_relation`
   (`user_id`, `role_id`, `create_by`)
 VALUES
   ('1', '1', '1');

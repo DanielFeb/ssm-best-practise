@@ -1,4 +1,4 @@
-CREATE TABLE `t_user` (
+CREATE TABLE `t_auth_user` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL DEFAULT '',
   `password` VARCHAR(32) NOT NULL DEFAULT '',

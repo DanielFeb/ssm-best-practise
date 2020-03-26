@@ -1,7 +1,7 @@
 package indi.daniel.archessm.interfaces.auth.web;
 
 import indi.daniel.archessm.interfaces.common.response.ResponseStatus;
-import indi.daniel.archessm.infrastructures.repository.IdentityGenerator;
+import indi.daniel.archessm.infrastructures.repository.common.IdentityGenerator;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

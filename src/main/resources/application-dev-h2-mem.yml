@@ -13,8 +13,12 @@ spring:
 
 mybatis:
   mapper-locations:
-  - classpath:mapper/*.xml
-  - classpath:mapper/h2/*.xml
+    - classpath:mapper/*.xml
+    - classpath:mapper/auth/*.xml
+    - classpath:mapper/auth/auto/*.xml
+    - classpath:mapper/finance/*.xml
+    - classpath:mapper/finance/auto/*.xml
+    - classpath:mapper/h2/*.xml
 
 
 logging:

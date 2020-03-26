@@ -4,10 +4,10 @@ import indi.daniel.archessm.domain.auth.model.User;
 import indi.daniel.archessm.domain.auth.model.UserId;
 import indi.daniel.archessm.domain.auth.model.UserRepository;
 import indi.daniel.archessm.domain.auth.model.exception.UserNotFoundException;
-import indi.daniel.archessm.infrastructures.repository.IdentityGenerator;
+import indi.daniel.archessm.infrastructures.repository.common.IdentityGenerator;
 import indi.daniel.archessm.infrastructures.repository.TableNameConstants;
-import indi.daniel.archessm.infrastructures.repository.dao.UserPOMapper;
-import indi.daniel.archessm.infrastructures.repository.po.UserPO;
+import indi.daniel.archessm.infrastructures.repository.auth.dao.UserPOMapper;
+import indi.daniel.archessm.infrastructures.repository.auth.po.UserPO;
 
 public class UserRepositoryMybatis extends UserRepository {
     private final UserPOMapper userPOMapper;
@@ -20,7 +20,7 @@ public class UserRepositoryMybatis extends UserRepository {
 
     @Override
     public UserId getNextId() {
-        return new UserId(identityGenerator.getNextId(TableNameConstants.TABLE_USER));
+        return new UserId(identityGenerator.getNextId(TableNameConstants.TABLE_AUTH_USER));
     }
 
     @Override
