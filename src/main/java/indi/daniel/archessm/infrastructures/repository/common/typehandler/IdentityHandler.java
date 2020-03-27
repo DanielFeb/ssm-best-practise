@@ -2,8 +2,8 @@ package indi.daniel.archessm.infrastructures.repository.common.typehandler;
 
 import indi.daniel.archessm.domain.finance.model.account.AccountID;
 import indi.daniel.archessm.domain.finance.model.transfer.TransferHistoryID;
-import indi.daniel.archessm.domain.shared.DirtyDataException;
-import indi.daniel.archessm.domain.shared.Identity;
+import indi.daniel.archessm.domain.shared.repository.DirtyDataException;
+import indi.daniel.archessm.domain.shared.core.Identity;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;

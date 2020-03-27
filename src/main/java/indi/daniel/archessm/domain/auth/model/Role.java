@@ -1,7 +1,7 @@
 package indi.daniel.archessm.domain.auth.model;
 
 import com.google.common.base.Preconditions;
-import indi.daniel.archessm.domain.shared.Entity;
+import indi.daniel.archessm.domain.shared.core.Entity;
 import org.apache.commons.lang3.StringUtils;
 
 public class Role implements Entity<Role, RoleId> {

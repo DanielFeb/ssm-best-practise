@@ -2,14 +2,13 @@ package indi.daniel.archessm.interfaces.common.config.web;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import indi.daniel.archessm.domain.shared.DomainRuntimeException;
+import indi.daniel.archessm.domain.shared.core.DomainRuntimeException;
 import indi.daniel.archessm.interfaces.common.exception.ApiException;
 import indi.daniel.archessm.interfaces.common.exception.UnexpectedServerErrorException;
 import indi.daniel.archessm.interfaces.common.response.ResponseStatusCode;
 import indi.daniel.archessm.interfaces.common.response.ServiceResponse;
 import indi.daniel.archessm.interfaces.common.response.ServiceResponseFactory;
 import indi.daniel.archessm.interfaces.common.config.web.log.LogMessageSupplier;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;

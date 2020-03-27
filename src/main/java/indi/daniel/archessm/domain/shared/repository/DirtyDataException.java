@@ -1,4 +1,6 @@
-package indi.daniel.archessm.domain.shared;
+package indi.daniel.archessm.domain.shared.repository;
+
+import indi.daniel.archessm.domain.shared.core.DomainRuntimeException;
 
 public class DirtyDataException extends DomainRuntimeException {
     public DirtyDataException(String messageCode) {

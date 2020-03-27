@@ -1,4 +1,4 @@
-package indi.daniel.archessm.domain.shared;
+package indi.daniel.archessm.domain.shared.repository.ufw;
 
 public interface UnitOfWorkRepository<T> {
     void create(T entity);

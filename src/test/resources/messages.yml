@@ -7,4 +7,3 @@ message-keeper:
       BUSINESS_ERROR: '业务异常'
       AUTHORIZATION_ERROR: '权限异常'
       UNEXPECTED_SERVER_ERROR: '服务器异常，请联系管理员'
-      USER_NOT_FOUND: '找不到用户'

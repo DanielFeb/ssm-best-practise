@@ -30,7 +30,7 @@ public class PerformanceInterceptor {
         }
     }
 
-    @Pointcut("execution(* indi.daniel.archessm.infrastructures.repository.dao..*(..))")
+    @Pointcut("execution(* indi.daniel.archessm.infrastructures.repository..dao..*(..))")
     private void databaseOps() {
     }
 }

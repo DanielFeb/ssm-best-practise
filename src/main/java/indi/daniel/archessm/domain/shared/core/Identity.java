@@ -1,8 +1,7 @@
-package indi.daniel.archessm.domain.shared;
+package indi.daniel.archessm.domain.shared.core;
 
 import com.google.common.base.Preconditions;
 import lombok.Getter;
-import org.springframework.util.Assert;
 
 import java.util.Objects;
 

@@ -1,10 +1,11 @@
 package indi.daniel.archessm.infrastructures.repository.finance.po;
 
 import indi.daniel.archessm.domain.finance.model.account.AccountID;
+import indi.daniel.archessm.infrastructures.repository.common.Traceable;
 import org.joda.money.Money;
 import org.joda.time.DateTime;
 
-public class AccountPO {
+public class AccountPO implements Traceable {
     private AccountID id;
 
     private Money balance;

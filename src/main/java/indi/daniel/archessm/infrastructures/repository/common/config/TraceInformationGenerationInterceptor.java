@@ -29,11 +29,11 @@ public class TraceInformationGenerationInterceptor {
     public static final Class DATE_CLASS = DateTime.class;
 
 
-    @Pointcut("execution(* indi.daniel.archessm.infrastructures.repository.dao..insert*(..))")
+    @Pointcut("execution(* indi.daniel.archessm.infrastructures.repository..dao..insert*(..))")
     public void insertData() {
     }
 
-    @Pointcut("execution(* indi.daniel.archessm.infrastructures.repository.dao..updateByPrimaryKey*(..))")
+    @Pointcut("execution(* indi.daniel.archessm.infrastructures.repository..dao..updateByPrimaryKey*(..))")
     public void updateData() {
     }
 

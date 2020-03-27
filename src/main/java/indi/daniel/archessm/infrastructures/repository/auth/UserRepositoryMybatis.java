@@ -36,7 +36,7 @@ public class UserRepositoryMybatis extends UserRepository {
     }
 
     @Override
-    protected void doUpdate(User user) {
+    protected void doModify(User user) {
         UserPO userPO = UserConverter.toPersistentObject(user);
         // TODO check no modification
         userPOMapper.updateByPrimaryKeySelective(userPO);

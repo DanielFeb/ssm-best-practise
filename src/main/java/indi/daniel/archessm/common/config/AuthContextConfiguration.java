@@ -12,12 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class RepositoryConfiguration {
-
-    @Bean
-    public IdentityGenerator identityGenerator(IdentityMapper identityMapper) {
-        return LocalMapIdentityGenerator.getInstance(identityMapper);
-    }
+public class AuthContextConfiguration {
 
     @Bean
     public UserRepository userRepository(UserPOMapper userPOMapper, IdentityGenerator identityGenerator) {

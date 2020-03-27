@@ -2,10 +2,11 @@ package indi.daniel.archessm.infrastructures.repository.finance.po;
 
 import indi.daniel.archessm.domain.finance.model.account.AccountID;
 import indi.daniel.archessm.domain.finance.model.transfer.TransferHistoryID;
+import indi.daniel.archessm.infrastructures.repository.common.Traceable;
 import org.joda.money.Money;
 import org.joda.time.DateTime;
 
-public class TransferHistoryPO {
+public class TransferHistoryPO implements Traceable {
     private TransferHistoryID id;
 
     private AccountID fromAccount;

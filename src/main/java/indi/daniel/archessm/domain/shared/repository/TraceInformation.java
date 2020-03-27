@@ -1,11 +1,10 @@
-package indi.daniel.archessm.domain.shared;
+package indi.daniel.archessm.domain.shared.repository;
 
 import indi.daniel.archessm.common.ApplicationConstants;
+import indi.daniel.archessm.domain.shared.core.ValueObject;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.joda.time.DateTime;
-
-import java.util.Date;
 
 @AllArgsConstructor
 @Getter

@@ -2,8 +2,8 @@ package indi.daniel.archessm.domain.auth.model;
 
 import com.google.common.base.Preconditions;
 import indi.daniel.archessm.common.ApplicationConstants;
-import indi.daniel.archessm.domain.shared.Entity;
-import indi.daniel.archessm.domain.shared.TraceInformation;
+import indi.daniel.archessm.domain.shared.core.Entity;
+import indi.daniel.archessm.domain.shared.repository.TraceInformation;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tomcat.util.security.MD5Encoder;
 import org.joda.time.DateTime;

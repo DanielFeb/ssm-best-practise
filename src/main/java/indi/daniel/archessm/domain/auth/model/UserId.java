@@ -1,7 +1,7 @@
 package indi.daniel.archessm.domain.auth.model;
 
 import com.google.common.base.Preconditions;
-import indi.daniel.archessm.domain.shared.Identity;
+import indi.daniel.archessm.domain.shared.core.Identity;
 
 public class UserId extends Identity<UserId, Long> {
     public UserId(Long value) {

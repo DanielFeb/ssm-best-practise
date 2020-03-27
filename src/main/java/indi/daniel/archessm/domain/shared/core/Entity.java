@@ -1,4 +1,4 @@
-package indi.daniel.archessm.domain.shared;
+package indi.daniel.archessm.domain.shared.core;
 
 /**
  * An entity, as explained in the DDD book.

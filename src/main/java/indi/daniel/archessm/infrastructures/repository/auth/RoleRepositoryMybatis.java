@@ -27,12 +27,19 @@ public class RoleRepositoryMybatis implements RoleRepository {
 
     @Override
     public Set<Role> getRoles(Set<RoleId> roleIds) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
-    public void store(Role entity) {
+    public void create(Role entity) {
         throw new UnsupportedOperationException();
+
+    }
+
+    @Override
+    public void modify(Role entity) {
+        throw new UnsupportedOperationException();
+
     }
 
     @Override

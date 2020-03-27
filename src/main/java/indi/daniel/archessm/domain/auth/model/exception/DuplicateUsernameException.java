@@ -1,7 +1,7 @@
 package indi.daniel.archessm.domain.auth.model.exception;
 
 import indi.daniel.archessm.common.message.MessageCodeConstants;
-import indi.daniel.archessm.domain.shared.DomainRuntimeException;
+import indi.daniel.archessm.domain.shared.core.DomainRuntimeException;
 
 public class DuplicateUsernameException extends DomainRuntimeException {
     public DuplicateUsernameException(String username) {
