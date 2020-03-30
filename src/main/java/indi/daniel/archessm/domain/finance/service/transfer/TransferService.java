@@ -4,7 +4,9 @@ import indi.daniel.archessm.domain.finance.model.account.Account;
 import indi.daniel.archessm.domain.finance.model.account.AccountRepository;
 import indi.daniel.archessm.domain.finance.model.transfer.TransferHistory;
 import indi.daniel.archessm.domain.finance.model.transfer.TransferHistoryRepository;
+import indi.daniel.archessm.domain.shared.repository.ufw.DelayCommit;
 import org.joda.money.Money;
+import org.springframework.transaction.annotation.Transactional;
 
 public class TransferService {
 
@@ -16,6 +18,8 @@ public class TransferService {
         this.transferHistoryRepository = transferHistoryRepository;
     }
 
+    @DelayCommit
+    @Transactional
     public TransferHistory transfer(Account fromAccount, Account toAccount, Money amount) {
         fromAccount.decreaseBalance(amount);
         toAccount.increaseBalance(amount);
