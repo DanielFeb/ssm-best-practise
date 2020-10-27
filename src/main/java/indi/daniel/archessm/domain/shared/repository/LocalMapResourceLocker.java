@@ -3,7 +3,6 @@ package indi.daniel.archessm.domain.shared.repository;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Deprecated
 public class LocalMapResourceLocker implements ResourceLocker {
     private static Map<String, Thread> lockRegistry = new ConcurrentHashMap<>();
 
